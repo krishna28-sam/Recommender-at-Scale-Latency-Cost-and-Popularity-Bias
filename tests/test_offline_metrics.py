@@ -1,4 +1,12 @@
-from bias.offline_metrics import compute_auc, compute_mrr, compute_ndcg, gini
+import math
+
+from bias.offline_metrics import (
+    compute_auc,
+    compute_exposure_l1,
+    compute_mrr,
+    compute_ndcg,
+    gini,
+)
 
 
 def test_small_fixture_metrics_and_gini():
@@ -16,3 +24,10 @@ def test_small_fixture_metrics_and_gini():
     assert abs(compute_ndcg(labels, 10) - 0.6309297535714575) < 1e-9
     assert abs(gini([1, 1, 1, 1]) - 0.0) < 1e-9
     assert abs(gini([4, 0, 0, 0]) - 0.75) < 1e-9
+
+
+def test_served_exposure_metrics_hand_computed():
+    labels = [0, 1, 0]
+    assert abs(compute_ndcg(labels, 5) - 1.0 / math.log2(3)) < 1e-9
+    assert abs(compute_exposure_l1({"a": 1.0, "b": 0.5}, {"a": 0.5, "b": 0.5})
+               - (2.0 / 3.0 - 0.5) * 2) < 1e-9

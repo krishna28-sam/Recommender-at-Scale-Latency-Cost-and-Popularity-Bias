@@ -10,3 +10,9 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
+build.log
+flink_build.log
+smoke.log
+logs/
+.venv/
+__pycache__/

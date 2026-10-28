@@ -49,6 +49,16 @@ def compute_ndcg(labels, k):
     return dcg(labels[:k], k) / float(dcg(ideal, k)) if dcg(ideal, k) else 0.0
 
 
+def compute_exposure_l1(exposure, target_shares):
+    total_exposure = float(sum(exposure.values()))
+    if not total_exposure:
+        return sum(abs(float(target)) for target in target_shares.values())
+    groups = set(exposure) | set(target_shares)
+    return sum(abs(exposure.get(group, 0.0) / total_exposure -
+                   float(target_shares.get(group, 0.0)))
+               for group in groups)
+
+
 def iter_prediction_files(predictions):
     if predictions.is_file():
         yield predictions
@@ -58,13 +68,13 @@ def iter_prediction_files(predictions):
                 yield path
 
 
-def summarize_prediction_file(path, catalog, item_stats, train_known, output_dir):
+def summarize_prediction_file(path, catalog, item_stats, train_known, target_shares):
     mapping_name = path.parent.name
     lambda_name = path.stem.split("lambda_", 1)[1]
     exposure = Counter()
     item_exposure = Counter()
     category_exposure = Counter()
-    aucs, mrrs, ndcg5, ndcg10 = [], [], [], []
+    aucs, mrrs, ndcg5, ndcg10, served_ndcg5 = [], [], [], [], []
     cold_aucs, cold_ndcg5, cold_ndcg10, cold_mrrs = [], [], [], []
     with path.open(encoding="utf-8") as handle:
         for line in handle:
@@ -75,6 +85,9 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, output_dir
             mrrs.append(compute_mrr(labels))
             ndcg5.append(compute_ndcg(labels, 5))
             ndcg10.append(compute_ndcg(labels, 10))
+            served_labels = [record["labels"].get(item, 0)
+                             for item in record.get("served_top_k", [])]
+            served_ndcg5.append(compute_ndcg(served_labels, 5))
             cold_items = [item for item in record["ranked_candidates"] if item not in train_known]
             if cold_items:
                 cold_labels = [record["labels"].get(item, 0) for item in cold_items]
@@ -100,6 +113,8 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, output_dir
         "mrr": sum(mrrs) / len(mrrs) if mrrs else 0.0,
         "ndcg@5": sum(ndcg5) / len(ndcg5) if ndcg5 else 0.0,
         "ndcg@10": sum(ndcg10) / len(ndcg10) if ndcg10 else 0.0,
+        "ndcg_at_5_served": (sum(served_ndcg5) / len(served_ndcg5)
+                             if served_ndcg5 else 0.0),
         "cold_auc": sum(cold_aucs) / len(cold_aucs) if cold_aucs else 0.0,
         "cold_mrr": sum(cold_mrrs) / len(cold_mrrs) if cold_mrrs else 0.0,
         "cold_ndcg@5": sum(cold_ndcg5) / len(cold_ndcg5) if cold_ndcg5 else 0.0,
@@ -122,6 +137,7 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, output_dir
             group: exposure[group] / float(total_exposure or 1) - catalog_counts[group] / float(total_catalog or 1)
             for group in set(exposure) | set(catalog_counts)
         },
+        "exposure_l1": compute_exposure_l1(exposure, target_shares),
     }
     return mapping_name, lambda_name, result
 
@@ -154,17 +170,21 @@ def main():
                 if label == "1":
                     train_known.add(item_id)
 
-    all_results = {}
+    reranker_sweep = {}
     for prediction_file in iter_prediction_files(args.predictions):
+        mapping_name = prediction_file.parent.name
+        target_path = args.item_stats.parent / "target_shares_{}.json".format(mapping_name)
+        target_shares = json.loads(target_path.read_text())
         mapping_name, lambda_name, result = summarize_prediction_file(
-            prediction_file, catalog, item_stats, train_known, args.output.parent)
-        all_results.setdefault(mapping_name, {})[lambda_name] = result
+            prediction_file, catalog, item_stats, train_known, target_shares)
+        reranker_sweep.setdefault(mapping_name, {})[lambda_name] = result
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    all_results = {"reranker_sweep": reranker_sweep}
     args.output.write_text(json.dumps(all_results, indent=2) + "\n")
 
     csv_rows = []
-    for mapping_name, lambdas in all_results.items():
+    for mapping_name, lambdas in reranker_sweep.items():
         for lambda_name, result in lambdas.items():
             row = {"mapping": mapping_name, "lambda": lambda_name}
             row.update({k: v for k, v in result.items() if isinstance(v, (int, float, str))})
@@ -178,11 +198,13 @@ def main():
             writer.writerow(row)
 
     print("wrote {} and {}".format(args.output, csv_path))
-    print("mapping\tlambda\tauc\tndcg@10\tpublisher_gini")
-    for mapping_name, lambdas in all_results.items():
+    print("mapping\tlambda\tauc\tndcg@10\tpublisher_gini\texposure_l1\tndcg_at_5_served")
+    for mapping_name, lambdas in reranker_sweep.items():
         for lambda_name, result in lambdas.items():
-            print("{}\t{}\t{:.6f}\t{:.6f}\t{:.6f}".format(
-                mapping_name, lambda_name, result["auc"], result["ndcg@10"], result["publisher_gini"]))
+            print("{}\t{}\t{:.6f}\t{:.6f}\t{:.6f}\t{:.6f}\t{:.6f}".format(
+                mapping_name, lambda_name, result["auc"], result["ndcg@10"],
+                result["publisher_gini"], result["exposure_l1"],
+                result["ndcg_at_5_served"]))
 
 
 if __name__ == "__main__":

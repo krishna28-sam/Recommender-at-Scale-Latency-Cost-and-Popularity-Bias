@@ -57,12 +57,25 @@ def test_reranker_running_share_penalty_converges_to_target():
     assert choice == "B"
 
     state = {"exposure": {}, "total": 0.0}
-    for _ in range(100):
+    for _ in range(1000):
         rerank(base_rows, groups, target, 1, 1.0, state=state)
 
     exposure = state["exposure"]
     total = state["total"]
     share_a = exposure.get("publisher_a", 0.0) / max(total, 1e-9)
     share_b = exposure.get("publisher_b", 0.0) / max(total, 1e-9)
-    assert abs(share_a - 0.8) < 0.2
-    assert abs(share_b - 0.2) < 0.2
+    assert abs(share_a - 0.8) < 0.05
+    assert abs(share_b - 0.2) < 0.05
+
+
+def test_reranker_demotes_overexposed_publisher():
+    rows = [
+        {"news_id": "A", "score": 1.0, "smoothed_ctr": 1.0, "popularity": 1.0},
+        {"news_id": "B", "score": 0.9, "smoothed_ctr": 0.9, "popularity": 0.9},
+    ]
+    groups = {"A": "publisher_a", "B": "publisher_b"}
+    targets = {"publisher_a": 0.5, "publisher_b": 0.5}
+
+    assert rerank(rows, groups, targets, 1, 0.0)[0]["news_id"] == "A"
+    state = {"exposure": {"publisher_a": 10.0}, "total": 10.0}
+    assert rerank(rows, groups, targets, 1, 1.0, state=state)[0]["news_id"] == "B"
