@@ -1,0 +1,9 @@
+{
+  "data_source": "synthetic",
+  "seed": 20261028,
+  "train_news": 20000,
+  "dev_news": 21000,
+  "train_impressions": 30000,
+  "dev_impressions": 10000,
+  "categories": 17
+}

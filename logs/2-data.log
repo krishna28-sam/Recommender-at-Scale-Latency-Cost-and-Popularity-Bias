@@ -1,0 +1,27 @@
+python3 scripts/download_mind.py
+Downloading MINDsmall_train.zip from https://mind201910small.blob.core.windows.net/release/MINDsmall_train.zip
+Traceback (most recent call last):
+  File "/home/krishna/Big_Data/scripts/download_mind.py", line 57, in <module>
+    main()
+  File "/home/krishna/Big_Data/scripts/download_mind.py", line 35, in main
+    with urllib.request.urlopen(url) as response, partial.open("wb") as target:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 525, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.11/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 409: Public access is not permitted on this storage account.
+make: *** [Makefile:10: data] Error 1

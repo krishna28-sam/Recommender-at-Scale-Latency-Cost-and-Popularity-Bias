@@ -1,0 +1,12 @@
+data/raw/
+data/processed/
+data/manifests/
+data/outputs/
+benchmarks/raw/
+benchmarks/summary/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.ipynb_checkpoints/
+

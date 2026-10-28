@@ -1,0 +1,8 @@
+wrote train-only item stats and per-mapping publisher target shares
+target_share_files=6
+target_shares_category_404.json keys=100 publisher_keys=True
+target_shares_category_505.json keys=100 publisher_keys=True
+target_shares_category_606.json keys=100 publisher_keys=True
+target_shares_random_101.json keys=100 publisher_keys=True
+target_shares_random_202.json keys=100 publisher_keys=True
+target_shares_random_303.json keys=100 publisher_keys=True

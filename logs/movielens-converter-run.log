@@ -1,0 +1,17 @@
+{
+  "cutoff_timestamp": "07/17/2016 03:06:25",
+  "user_count": 10000,
+  "train_impressions": 155051,
+  "dev_impressions": 17518,
+  "positive_rating_threshold": 4.0,
+  "unique_users_with_train_impressions": 8537,
+  "unique_users_with_dev_impressions": 1828,
+  "candidates_per_impression": 20,
+  "positives_per_impression": 1.0,
+  "dev_news_not_in_train": 62182,
+  "dev_positives_cold_start_share": 0.0,
+  "train_clicks": 155051,
+  "train_ctr": 0.05,
+  "dev_clicks": 17518,
+  "dev_ctr": 0.05
+}

@@ -1,0 +1,238 @@
+Collecting confluent-kafka==2.6.1 (from -r requirements.txt (line 1))
+  Using cached confluent_kafka-2.6.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (51 kB)
+Collecting numpy==1.24.4 (from -r requirements.txt (line 2))
+  Downloading numpy-1.24.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+Collecting pandas==2.2.3 (from -r requirements.txt (line 3))
+  Using cached pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+Collecting PyYAML==6.0.2 (from -r requirements.txt (line 4))
+  Using cached PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting scikit-learn==1.5.2 (from -r requirements.txt (line 5))
+  Using cached scikit_learn-1.5.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Collecting scipy==1.14.1 (from -r requirements.txt (line 6))
+  Using cached scipy-1.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+Collecting apache-flink==1.20.1 (from -r requirements.txt (line 7))
+  Using cached apache_flink-1.20.1-cp311-cp311-manylinux1_x86_64.whl.metadata (5.0 kB)
+Collecting pytest==8.3.3 (from -r requirements.txt (line 8))
+  Using cached pytest-8.3.3-py3-none-any.whl.metadata (7.5 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.2.3->-r requirements.txt (line 3))
+  Using cached python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting pytz>=2020.1 (from pandas==2.2.3->-r requirements.txt (line 3))
+  Using cached pytz-2026.5-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.2.3->-r requirements.txt (line 3))
+  Using cached tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting joblib>=1.2.0 (from scikit-learn==1.5.2->-r requirements.txt (line 5))
+  Using cached joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting threadpoolctl>=3.1.0 (from scikit-learn==1.5.2->-r requirements.txt (line 5))
+  Using cached threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting py4j==0.10.9.7 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached py4j-0.10.9.7-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.2.3->-r requirements.txt (line 3))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting apache-beam<2.49.0,>=2.43.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached apache_beam-2.48.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.2 kB)
+Collecting cloudpickle>=2.2.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting avro-python3!=1.9.2,>=1.8.1 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached avro-python3-1.10.2.tar.gz (38 kB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting fastavro!=1.8.0,>=1.1.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached fastavro-1.13.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.3 kB)
+Collecting requests>=2.26.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting protobuf>=3.19.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting pyarrow>=5.0.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached pyarrow-26.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting pemja==0.4.1 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached pemja-0.4.1-cp311-cp311-manylinux1_x86_64.whl.metadata (3.8 kB)
+Collecting httplib2>=0.19.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached httplib2-0.32.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting ruamel.yaml>=0.18.4 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached ruamel_yaml-0.19.1-py3-none-any.whl.metadata (16 kB)
+Collecting apache-flink-libraries<1.20.2,>=1.20.1 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached apache-flink-libraries-1.20.1.tar.gz (231.1 MB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting iniconfig (from pytest==8.3.3->-r requirements.txt (line 8))
+  Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging (from pytest==8.3.3->-r requirements.txt (line 8))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.3.3->-r requirements.txt (line 8))
+  Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting find-libpython (from pemja==0.4.1->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached find_libpython-0.5.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting crcmod<2.0,>=1.7 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached crcmod-1.7.tar.gz (89 kB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting orjson<4.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)
+Collecting dill<0.3.2,>=0.3.1.1 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached dill-0.3.1.1.tar.gz (151 kB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting cloudpickle>=2.2.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached cloudpickle-2.2.1-py3-none-any.whl.metadata (6.9 kB)
+Collecting fasteners<1.0,>=0.3 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached fasteners-0.20-py3-none-any.whl.metadata (4.8 kB)
+Collecting grpcio!=1.48.0,<2,>=1.33.1 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached grpcio-1.85.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)
+Collecting hdfs<3.0.0,>=2.1.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached hdfs-2.7.3.tar.gz (43 kB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting httplib2>=0.19.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached httplib2-0.22.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting objsize<0.7.0,>=0.6.1 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading objsize-0.6.1-py3-none-any.whl.metadata (10 kB)
+Collecting pymongo<5.0.0,>=3.8.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading pymongo-4.19.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting proto-plus<2,>=1.7.1 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading proto_plus-1.29.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting protobuf>=3.19.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading protobuf-4.23.4-cp37-abi3-manylinux2014_x86_64.whl.metadata (540 bytes)
+Collecting pydot<2,>=1.2.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading pydot-1.4.2-py2.py3-none-any.whl.metadata (8.0 kB)
+Collecting regex>=2020.6.8 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 kB 677.9 kB/s eta 0:00:00
+Collecting typing-extensions>=3.7.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting zstandard<1,>=0.18.0 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading zstandard-0.25.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.3 kB)
+Collecting pyarrow>=5.0.0 (from apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading pyarrow-11.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+Collecting pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2 (from httplib2>=0.19.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+INFO: pip is looking at multiple versions of joblib to determine which version is compatible with other requirements. This could take a while.
+Collecting joblib>=1.2.0 (from scikit-learn==1.5.2->-r requirements.txt (line 5))
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.2.3->-r requirements.txt (line 3))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.26.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 2.1 MB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests>=2.26.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.26.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests>=2.26.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Collecting docopt (from hdfs<3.0.0,>=2.1.0->apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading docopt-0.6.2.tar.gz (25 kB)
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+INFO: pip is looking at multiple versions of proto-plus to determine which version is compatible with other requirements. This could take a while.
+Collecting proto-plus<2,>=1.7.1 (from apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading proto_plus-1.28.4-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.3-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.2-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.1-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.28.0-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.27.2-py3-none-any.whl.metadata (2.2 kB)
+  Downloading proto_plus-1.27.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting dnspython<3.0.0,>=2.7.0 (from pymongo<5.0.0,>=3.8.0->apache-beam<2.49.0,>=2.43.0->apache-flink==1.20.1->-r requirements.txt (line 7))
+  Downloading dnspython-2.9.0-py3-none-any.whl.metadata (5.7 kB)
+Downloading confluent_kafka-2.6.1-cp311-cp311-manylinux_2_28_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 2.5 MB/s eta 0:00:00
+Downloading numpy-1.24.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 3.2 MB/s eta 0:00:00
+Downloading pandas-2.2.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 3.2 MB/s eta 0:00:00
+Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 763.0/763.0 kB 2.6 MB/s eta 0:00:00
+Downloading scikit_learn-1.5.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.3/13.3 MB 3.1 MB/s eta 0:00:00
+Downloading scipy-1.14.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (41.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.2/41.2 MB 3.1 MB/s eta 0:00:00
+Downloading apache_flink-1.20.1-cp311-cp311-manylinux1_x86_64.whl (2.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.7/2.7 MB 3.2 MB/s eta 0:00:00
+Downloading pytest-8.3.3-py3-none-any.whl (342 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 342.3/342.3 kB 3.1 MB/s eta 0:00:00
+Downloading pemja-0.4.1-cp311-cp311-manylinux1_x86_64.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 kB 3.3 MB/s eta 0:00:00
+Downloading py4j-0.10.9.7-py2.py3-none-any.whl (200 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.5/200.5 kB 4.1 MB/s eta 0:00:00
+Downloading apache_beam-2.48.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (15.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.2/15.2 MB 3.2 MB/s eta 0:00:00
+Downloading cloudpickle-2.2.1-py3-none-any.whl (25 kB)
+Downloading fastavro-1.13.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 3.6 MB/s eta 0:00:00
+Downloading httplib2-0.22.0-py3-none-any.whl (96 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.9/96.9 kB 4.1 MB/s eta 0:00:00
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 309.1/309.1 kB 3.1 MB/s eta 0:00:00
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading protobuf-4.23.4-cp37-abi3-manylinux2014_x86_64.whl (304 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 304.5/304.5 kB 3.1 MB/s eta 0:00:00
+Downloading pyarrow-11.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.9/34.9 MB 3.0 MB/s eta 0:00:00
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2026.5-py2.py3-none-any.whl (506 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 3.0 MB/s eta 0:00:00
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached ruamel_yaml-0.19.1-py3-none-any.whl (118 kB)
+Using cached threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 2.8 MB/s eta 0:00:00
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 3.6 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.0/270.0 kB 2.6 MB/s eta 0:00:00
+Downloading fasteners-0.20-py3-none-any.whl (18 kB)
+Downloading grpcio-1.85.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 2.2 MB/s eta 0:00:00
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Downloading objsize-0.6.1-py3-none-any.whl (9.3 kB)
+Downloading orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.5/130.5 kB 685.8 kB/s eta 0:00:00
+Downloading proto_plus-1.27.1-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.5/50.5 kB 3.5 MB/s eta 0:00:00
+Downloading pydot-1.4.2-py2.py3-none-any.whl (21 kB)
+Downloading pymongo-4.19.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 128.5 kB/s eta 0:00:00
+Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 1.8 MB/s eta 0:00:00
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading zstandard-0.25.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 2.4 MB/s eta 0:00:00
+Downloading find_libpython-0.5.1-py3-none-any.whl (9.2 kB)
+Downloading dnspython-2.9.0-py3-none-any.whl (354 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 354.8/354.8 kB 2.3 MB/s eta 0:00:00
+Building wheels for collected packages: apache-flink-libraries, avro-python3, crcmod, dill, hdfs, docopt
+  Building wheel for apache-flink-libraries (pyproject.toml): started
+  Building wheel for apache-flink-libraries (pyproject.toml): finished with status 'done'
+  Created wheel for apache-flink-libraries: filename=apache_flink_libraries-1.20.1-py2.py3-none-any.whl size=231175038 sha256=b3521f42dcd21a7b1afb2c66ad53013f0b92cfe5cf064b7dc54c7feb6aac4fd0
+  Stored in directory: /home/krishna/.cache/pip/wheels/38/cf/b2/74c92f0fd74612f338dbefbd5b6ebb2ba002ba630b785debbd
+  Building wheel for avro-python3 (pyproject.toml): started
+  Building wheel for avro-python3 (pyproject.toml): finished with status 'done'
+  Created wheel for avro-python3: filename=avro_python3-1.10.2-py3-none-any.whl size=43991 sha256=cb22573287b27ecf2ef82983c5575c9b7853b3ff194207b90adf0435ba67806f
+  Stored in directory: /home/krishna/.cache/pip/wheels/31/be/50/1145d9510eb4440893fc0ec676ef9464a05e0f7492a76fbb2c
+  Building wheel for crcmod (pyproject.toml): started
+  Building wheel for crcmod (pyproject.toml): finished with status 'done'
+  Created wheel for crcmod: filename=crcmod-1.7-py3-none-any.whl size=18911 sha256=3b08346354449afec1cf66e820b07aba54fb1f6f7f26bce161d2fe3e752831f3
+  Stored in directory: /home/krishna/.cache/pip/wheels/23/94/7a/8cb7d14597e6395ce969933f01aed9ea8fa5f5b4d4c8a61e99
+  Building wheel for dill (pyproject.toml): started
+  Building wheel for dill (pyproject.toml): finished with status 'done'
+  Created wheel for dill: filename=dill-0.3.1.1-py3-none-any.whl size=78634 sha256=e28c22094a602efe4eaa65e57f19c58ff4138f0fa5b857ddd20fcd581f828f18
+  Stored in directory: /home/krishna/.cache/pip/wheels/01/60/80/1622338bcecce31a5664ef01c203cc5a7b09f59588d9c07376
+  Building wheel for hdfs (pyproject.toml): started
+  Building wheel for hdfs (pyproject.toml): finished with status 'done'
+  Created wheel for hdfs: filename=hdfs-2.7.3-py3-none-any.whl size=34431 sha256=ff7fc585c59700242e897bf3e1be4c6d343a3e492dd368a174703d862e6a4143
+  Stored in directory: /home/krishna/.cache/pip/wheels/b9/1d/dc/eb0833be25464c359903d356c4204721c6a672c26ff164cdc3
+  Building wheel for docopt (pyproject.toml): started
+  Building wheel for docopt (pyproject.toml): finished with status 'done'
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13781 sha256=cdadb1ad2c841a489669aa8cd61128c2323dd27494c964a40d85ac2206107f9f
+  Stored in directory: /home/krishna/.cache/pip/wheels/1a/b0/8c/4b75c4116c31f83c8f9f047231251e13cc74481cca4a78a9ce
+Successfully built apache-flink-libraries avro-python3 crcmod dill hdfs docopt
+Installing collected packages: pytz, py4j, docopt, crcmod, zstandard, urllib3, tzdata, typing-extensions, threadpoolctl, six, ruamel.yaml, regex, PyYAML, pyparsing, protobuf, pluggy, packaging, orjson, objsize, numpy, joblib, iniconfig, idna, find-libpython, fasteners, fastavro, dnspython, dill, confluent-kafka, cloudpickle, charset_normalizer, certifi, avro-python3, apache-flink-libraries, scipy, requests, python-dateutil, pytest, pymongo, pydot, pyarrow, proto-plus, pemja, httplib2, grpcio, scikit-learn, pandas, hdfs, apache-beam, apache-flink
+Successfully installed PyYAML-6.0.2 apache-beam-2.48.0 apache-flink-1.20.1 apache-flink-libraries-1.20.1 avro-python3-1.10.2 certifi-2026.10.23 charset_normalizer-3.5.2 cloudpickle-2.2.1 confluent-kafka-2.6.1 crcmod-1.7 dill-0.3.1.1 dnspython-2.9.0 docopt-0.6.2 fastavro-1.13.1 fasteners-0.20 find-libpython-0.5.1 grpcio-1.85.0 hdfs-2.7.3 httplib2-0.22.0 idna-3.20 iniconfig-2.3.1 joblib-1.5.3 numpy-1.24.4 objsize-0.6.1 orjson-3.13.0 packaging-26.3 pandas-2.2.3 pemja-0.4.1 pluggy-1.7.0 proto-plus-1.27.1 protobuf-4.23.4 py4j-0.10.9.7 pyarrow-11.0.0 pydot-1.4.2 pymongo-4.19.0 pyparsing-3.3.3 pytest-8.3.3 python-dateutil-2.9.0.post0 pytz-2026.5 regex-2026.9.29 requests-2.34.2 ruamel.yaml-0.19.1 scikit-learn-1.5.2 scipy-1.14.1 six-1.17.0 threadpoolctl-3.7.0 typing-extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0 zstandard-0.25.0
+
+[notice] A new release of pip is available: 24.0 -> 26.2.2
+[notice] To update, run: pip install --upgrade pip

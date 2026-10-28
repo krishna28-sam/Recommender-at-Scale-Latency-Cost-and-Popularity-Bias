@@ -1,0 +1,100 @@
+services:
+  kafka:
+    image: apache/kafka:3.8.1
+    container_name: recommender-kafka
+    hostname: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL://:29092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:29092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_HEAP_OPTS: "-Xms512m -Xmx1536m"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_RETENTION_MS: 3600000
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 2560M
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  producer:
+    build:
+      context: .
+      dockerfile: docker/producer.Dockerfile
+    profiles: ["producer"]
+    environment:
+      BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS:-kafka:9092}
+      MIND_USER_HASH_SALT: ${MIND_USER_HASH_SALT:?MIND_USER_HASH_SALT is required}
+      DATA_ROOT: ${DATA_ROOT:-data/raw}
+    volumes:
+      - ./data:/app/data:ro
+    command: ["--behaviors", "/app/${DATA_ROOT:-data/raw}/MINDsmall_dev/behaviors.tsv", "--rate", "${PRODUCER_RATE:-100}", "--seconds", "${PRODUCER_SECONDS:-30}"]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  spark:
+    build:
+      context: .
+      dockerfile: docker/spark.Dockerfile
+    profiles: ["spark"]
+    environment:
+      BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS:-kafka:9092}
+      RUN_ID: ${RUN_ID:-smoke}
+      DATA_ROOT: ${DATA_ROOT:-data/raw}
+    volumes:
+      - ./data:/app/data:ro
+    command: ["/opt/spark/bin/spark-submit", "--master", "local[2]", "spark/pass_through.py"]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "2.5"
+          memory: 4G
+
+  flink:
+    build:
+      context: .
+      dockerfile: docker/flink.Dockerfile
+    profiles: ["flink"]
+    environment:
+      BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS:-kafka:9092}
+      FLINK_PARALLELISM: ${FLINK_PARALLELISM:-1}
+      DATA_ROOT: ${DATA_ROOT:-data/raw}
+    volumes:
+      - ./data:/app/data:ro
+    command: ["python", "flink/pass_through.py", "--parallelism", "${FLINK_PARALLELISM:-1}"]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "2.5"
+          memory: 4G
+
+# Spark and Flink are started independently so one engine runs at a time under
+# the same declared 2.5 CPU / 4 GB engine limit.

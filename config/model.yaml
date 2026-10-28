@@ -1,0 +1,46 @@
+model:
+  top_k: 5
+  alpha: 10.0
+  popularity_weight: 0.7
+  category_affinity_weight: 0.3
+  offline_reranker_lambdas: [0.0, 0.1, 0.3, 0.6, 1.0, 2.0, 5.0]
+  streaming_reranker_lambdas: [0.0, 0.3, 0.6]
+  weights:
+    popularity: 0.7
+    category_affinity: 0.3
+  position_discount: log2
+  target_table: train_catalog_group_share
+  tie_breaking:
+    - final_score_desc
+    - smoothed_ctr_desc
+    - popularity_desc
+    - news_id_asc
+data:
+  seed: 20261028
+  movielens_max_users: 10000
+  movielens_train_impressions_per_user: 20
+  movielens_dev_impressions_per_user: 10
+  user_hash_algorithm: sha256
+  user_hash_salt_env: MIND_USER_HASH_SALT
+  publisher_count: 100
+  publisher_distribution: uniform_catalog
+  publisher_configs:
+    - {name: random_101, family: random, seed: 101}
+    - {name: random_202, family: random, seed: 202}
+    - {name: random_303, family: random, seed: 303}
+    - {name: category_404, family: category_correlated, seed: 404}
+    - {name: category_505, family: category_correlated, seed: 505}
+    - {name: category_606, family: category_correlated, seed: 606}
+benchmark:
+  warmup_seconds: 30
+  measurement_seconds: 120
+  sample_interval_seconds: 1
+  scale_factor: 5
+  kafka_partitions: 2
+  rates: {below_saturation: null, above_saturation: null}
+  spark_triggers: [default, 1s]
+  flink_parallelism: [1, 2]
+  repetitions: 3
+privacy:
+  raw_user_ids_may_not_be_written: true
+  reidentification_attempts: false
