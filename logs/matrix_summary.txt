@@ -1,0 +1,9 @@
+latency_p50_ms=NOT RUN
+latency_p95_ms=NOT RUN
+latency_p99_ms=NOT RUN
+throughput_events_s=NOT RUN
+cpu_seconds mean=67.705190 std=17.236555 n=42
+cost_assumed=NOT RUN
+drain_seconds mean=6.643881 std=5.113267 n=42
+backlog_at_window_end mean=9167.404762 std=8711.823606 n=42
+suspicious_results=none

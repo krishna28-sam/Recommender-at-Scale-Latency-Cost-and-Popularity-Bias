@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-10-30T04:00:40.474475+00:00",
+  "run_id": "spark-1s_r1000_rep2",
+  "seed": 20261028,
+  "git_commit": "74525b9598606a4100442fd52a5f4d4dd029b05f",
+  "config_snapshot": "model:\n  top_k: 5\n  alpha: 10.0\n  popularity_weight: 0.7\n  category_affinity_weight: 0.3\n  offline_reranker_lambdas: [0.0, 0.1, 0.3, 0.6, 1.0, 2.0, 5.0]\n  streaming_reranker_lambdas: [0.0, 0.3, 0.6]\n  weights:\n    popularity: 0.7\n    category_affinity: 0.3\n  position_discount: log2\n  target_table: train_catalog_group_share\n  tie_breaking:\n    - final_score_desc\n    - smoothed_ctr_desc\n    - popularity_desc\n    - news_id_asc\ndata:\n  seed: 20261028\n  movielens_max_users: 10000\n  movielens_train_impressions_per_user: 20\n  movielens_dev_impressions_per_user: 10\n  user_hash_algorithm: sha256\n  user_hash_salt_env: MIND_USER_HASH_SALT\n  publisher_count: 100\n  publisher_distribution: uniform_catalog\n  publisher_configs:\n    - {name: random_101, family: random, seed: 101}\n    - {name: random_202, family: random, seed: 202}\n    - {name: random_303, family: random, seed: 303}\n    - {name: category_404, family: category_correlated, seed: 404}\n    - {name: category_505, family: category_correlated, seed: 505}\n    - {name: category_606, family: category_correlated, seed: 606}\nbenchmark:\n  warmup_seconds: 30\n  measurement_seconds: 60\n  sample_interval_seconds: 1\n  scale_factor: 5\n  kafka_partitions: 2\n  rates: {below_saturation: 1000, above_saturation: 2000}\n  spark_triggers: [default, 1s]\n  flink_parallelism: [1, 2]\n  repetitions: 3\n  assumed_cpu_price_per_second: 0.0001\n  assumed_gb_second_price: 0.00001\nprivacy:\n  raw_user_ids_may_not_be_written: true\n  reidentification_attempts: false\n",
+  "container_limits": "NOT RUN",
+  "warmup_seconds": 30,
+  "measurement_seconds": 60,
+  "latency_definition": "Kafka LogAppendTime minus producer_timestamp_ms",
+  "application_latency_definition": "sink_timestamp_ms minus producer_timestamp_ms",
+  "cost_prices": "ASSUMED illustrative prices from config; NOT A QUOTE",
+  "expected_engine": "spark",
+  "expected_mapping": "category_404",
+  "expected_lambda": 0.0,
+  "expected_count": 60000,
+  "spark_trigger": "1s",
+  "flink_bundle_time_ms": "default"
+}

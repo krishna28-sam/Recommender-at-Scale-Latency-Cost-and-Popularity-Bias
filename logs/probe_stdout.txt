@@ -1,0 +1,565 @@
+python3 bench/probe.py --execute --output logs/probe_report.txt
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+rates=100,250,500,1000,2000,4000
+20:31:16 up  7:42,  1 user,  load average: 0.49, 1.00, 1.01
+total        used        free      shared  buff/cache   available
+Mem:           7.4Gi       2.3Gi       1.4Gi       308Mi       3.7Gi       4.5Gi
+Swap:          8.0Gi          0B       8.0Gi
+swap_used_mib=0.0
+load_average_1m=0.49
+step config=spark-default target_rate=100
+engine_ready_seconds=8.0
+target_rate=100.0 achieved_rate=100.030 events=3001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=2587 app_min=85 app_max=729 kafka_min=88 kafka_max=735
+raw_output_1 producer_timestamp_ms=1793286095762 sink_timestamp_ms=1793286095972 kafka_append_time=1793286095972
+raw_output_2 producer_timestamp_ms=1793286095802 sink_timestamp_ms=1793286096328 kafka_append_time=1793286096334
+raw_output_3 producer_timestamp_ms=1793286095822 sink_timestamp_ms=1793286096328 kafka_append_time=1793286096334
+step status=PASS config=spark-default target_rate=100
+step config=spark-default target_rate=250
+engine_ready_seconds=7.0
+target_rate=250.0 achieved_rate=250.026 events=7501 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=6466 app_min=72 app_max=761 kafka_min=76 kafka_max=766
+raw_output_1 producer_timestamp_ms=1793286148764 sink_timestamp_ms=1793286149121 kafka_append_time=1793286149126
+raw_output_2 producer_timestamp_ms=1793286148768 sink_timestamp_ms=1793286149121 kafka_append_time=1793286149126
+raw_output_3 producer_timestamp_ms=1793286148780 sink_timestamp_ms=1793286149122 kafka_append_time=1793286149126
+step status=PASS config=spark-default target_rate=250
+step config=spark-default target_rate=500
+engine_ready_seconds=7.0
+target_rate=500.0 achieved_rate=500.023 events=15001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=12930 app_min=82 app_max=726 kafka_min=85 kafka_max=732
+raw_output_1 producer_timestamp_ms=1793286201796 sink_timestamp_ms=1793286202052 kafka_append_time=1793286202054
+raw_output_2 producer_timestamp_ms=1793286201798 sink_timestamp_ms=1793286202053 kafka_append_time=1793286202054
+raw_output_3 producer_timestamp_ms=1793286201804 sink_timestamp_ms=1793286202385 kafka_append_time=1793286202390
+step status=PASS config=spark-default target_rate=500
+step config=spark-default target_rate=1000
+engine_ready_seconds=7.0
+target_rate=1000.0 achieved_rate=1000.017 events=30001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=25857 app_min=116 app_max=894 kafka_min=120 kafka_max=900
+raw_output_1 producer_timestamp_ms=1793286253649 sink_timestamp_ms=1793286253939 kafka_append_time=1793286253942
+raw_output_2 producer_timestamp_ms=1793286253650 sink_timestamp_ms=1793286253939 kafka_append_time=1793286253942
+raw_output_3 producer_timestamp_ms=1793286253655 sink_timestamp_ms=1793286253939 kafka_append_time=1793286253942
+step status=PASS config=spark-default target_rate=1000
+step config=spark-default target_rate=2000
+engine_ready_seconds=7.0
+target_rate=2000.0 achieved_rate=2000.000 events=60001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=51687 app_min=1205 app_max=7747 kafka_min=1207 kafka_max=7752
+raw_output_1 producer_timestamp_ms=1793286307073 sink_timestamp_ms=1793286307285 kafka_append_time=1793286307291
+raw_output_2 producer_timestamp_ms=1793286307074 sink_timestamp_ms=1793286307286 kafka_append_time=1793286307291
+raw_output_3 producer_timestamp_ms=1793286307074 sink_timestamp_ms=1793286307286 kafka_append_time=1793286307291
+step status=PASS config=spark-default target_rate=2000
+step config=spark-default target_rate=4000
+engine_ready_seconds=8.1
+target_rate=4000.0 achieved_rate=3999.984 events=120001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=103495 app_min=5843 app_max=34579 kafka_min=5844 kafka_max=34615
+raw_output_1 producer_timestamp_ms=1793286368310 sink_timestamp_ms=1793286368920 kafka_append_time=1793286368926
+raw_output_2 producer_timestamp_ms=1793286368310 sink_timestamp_ms=1793286368921 kafka_append_time=1793286368926
+raw_output_3 producer_timestamp_ms=1793286368310 sink_timestamp_ms=1793286368922 kafka_append_time=1793286368926
+step status=PASS config=spark-default target_rate=4000
+step config=spark-1s target_rate=100
+engine_ready_seconds=7.0
+target_rate=100.0 achieved_rate=100.031 events=3001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=2587 app_min=71 app_max=764 kafka_min=74 kafka_max=769
+raw_output_1 producer_timestamp_ms=1793286455320 sink_timestamp_ms=1793286455773 kafka_append_time=1793286455778
+raw_output_2 producer_timestamp_ms=1793286455360 sink_timestamp_ms=1793286455773 kafka_append_time=1793286455778
+raw_output_3 producer_timestamp_ms=1793286455380 sink_timestamp_ms=1793286455773 kafka_append_time=1793286455778
+step status=PASS config=spark-1s target_rate=100
+step config=spark-1s target_rate=250
+engine_ready_seconds=7.0
+target_rate=250.0 achieved_rate=250.026 events=7501 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=6468 app_min=79 app_max=729 kafka_min=80 kafka_max=735
+raw_output_1 producer_timestamp_ms=1793286507978 sink_timestamp_ms=1793286508155 kafka_append_time=1793286508156
+raw_output_2 producer_timestamp_ms=1793286507982 sink_timestamp_ms=1793286508156 kafka_append_time=1793286508156
+raw_output_3 producer_timestamp_ms=1793286507986 sink_timestamp_ms=1793286508412 kafka_append_time=1793286508418
+step status=PASS config=spark-1s target_rate=250
+step config=spark-1s target_rate=500
+engine_ready_seconds=7.0
+target_rate=500.0 achieved_rate=500.027 events=15001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=12922 app_min=84 app_max=749 kafka_min=89 kafka_max=755
+raw_output_1 producer_timestamp_ms=1793286559741 sink_timestamp_ms=1793286560053 kafka_append_time=1793286560056
+raw_output_2 producer_timestamp_ms=1793286559747 sink_timestamp_ms=1793286560054 kafka_append_time=1793286560056
+raw_output_3 producer_timestamp_ms=1793286559751 sink_timestamp_ms=1793286560054 kafka_append_time=1793286560056
+step status=PASS config=spark-1s target_rate=500
+step config=spark-1s target_rate=1000
+engine_ready_seconds=7.0
+target_rate=1000.0 achieved_rate=1000.005 events=30001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=25864 app_min=134 app_max=988 kafka_min=136 kafka_max=994
+raw_output_1 producer_timestamp_ms=1793286612481 sink_timestamp_ms=1793286612695 kafka_append_time=1793286612701
+raw_output_2 producer_timestamp_ms=1793286612486 sink_timestamp_ms=1793286612695 kafka_append_time=1793286612701
+raw_output_3 producer_timestamp_ms=1793286612489 sink_timestamp_ms=1793286612695 kafka_append_time=1793286612701Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+
+step status=PASS config=spark-1s target_rate=1000
+step config=spark-1s target_rate=2000
+engine_ready_seconds=7.0
+target_rate=2000.0 achieved_rate=1999.996 events=60001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=51755 app_min=1330 app_max=7267 kafka_min=1333 kafka_max=7272
+raw_output_1 producer_timestamp_ms=1793286665904 sink_timestamp_ms=1793286666105 kafka_append_time=1793286666111
+raw_output_2 producer_timestamp_ms=1793286665906 sink_timestamp_ms=1793286666106 kafka_append_time=1793286666111
+raw_output_3 producer_timestamp_ms=1793286665907 sink_timestamp_ms=1793286666106 kafka_append_time=1793286666111
+step status=PASS config=spark-1s target_rate=2000
+step config=spark-1s target_rate=4000
+engine_ready_seconds=7.0
+target_rate=4000.0 achieved_rate=4000.002 events=120001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=103408 app_min=6081 app_max=35244 kafka_min=6082 kafka_max=35250
+raw_output_1 producer_timestamp_ms=1793286724528 sink_timestamp_ms=1793286724754 kafka_append_time=1793286724759
+raw_output_2 producer_timestamp_ms=1793286724528 sink_timestamp_ms=1793286724755 kafka_append_time=1793286724759
+raw_output_3 producer_timestamp_ms=1793286724529 sink_timestamp_ms=1793286724755 kafka_append_time=1793286724759
+step status=PASS config=spark-1s target_rate=4000
+step config=flink-p1 target_rate=100
+engine_ready_seconds=7.0
+target_rate=100.0 achieved_rate=100.031 events=3001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=2584 app_min=106 app_max=2013 kafka_min=118 kafka_max=2131
+raw_output_1 producer_timestamp_ms=1793286811226 sink_timestamp_ms=1793286813136 kafka_append_time=1793286813219
+raw_output_2 producer_timestamp_ms=1793286811236 sink_timestamp_ms=1793286813138 kafka_append_time=1793286813219
+raw_output_3 producer_timestamp_ms=1793286811246 sink_timestamp_ms=1793286813138 kafka_append_time=1793286813219
+step status=PASS config=flink-p1 target_rate=100
+step config=flink-p1 target_rate=250
+engine_ready_seconds=6.0
+target_rate=250.0 achieved_rate=250.026 events=7501 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=6468 app_min=229 app_max=2017 kafka_min=248 kafka_max=2273
+raw_output_1 producer_timestamp_ms=1793286874415 sink_timestamp_ms=1793286876425 kafka_append_time=1793286876659
+raw_output_2 producer_timestamp_ms=1793286874419 sink_timestamp_ms=1793286876426 kafka_append_time=1793286876659
+raw_output_3 producer_timestamp_ms=1793286874423 sink_timestamp_ms=1793286876428 kafka_append_time=1793286876659
+step status=PASS config=flink-p1 target_rate=250
+step config=flink-p1 target_rate=500
+engine_ready_seconds=6.0
+target_rate=500.0 achieved_rate=500.025 events=15001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=12929 app_min=399 app_max=2082 kafka_min=416 kafka_max=2573
+raw_output_1 producer_timestamp_ms=1793286935789 sink_timestamp_ms=1793286936082 kafka_append_time=1793286936089
+raw_output_2 producer_timestamp_ms=1793286935793 sink_timestamp_ms=1793286936082 kafka_append_time=1793286936142
+raw_output_3 producer_timestamp_ms=1793286935791 sink_timestamp_ms=1793286936082 kafka_append_time=1793286936142
+step status=PASS config=flink-p1 target_rate=500
+step config=flink-p1 target_rate=1000
+engine_ready_seconds=6.0
+target_rate=1000.0 achieved_rate=998.744 events=30001 elapsed_seconds=30.039
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=25849 app_min=463 app_max=2083 kafka_min=478 kafka_max=2449
+raw_output_1 producer_timestamp_ms=1793286997436 sink_timestamp_ms=1793286997619 kafka_append_time=1793286997691
+raw_output_2 producer_timestamp_ms=1793286997438 sink_timestamp_ms=1793286997619 kafka_append_time=1793286997691
+raw_output_3 producer_timestamp_ms=1793286997435 sink_timestamp_ms=1793286997620 kafka_append_time=1793286997691
+step status=PASS config=flink-p1 target_rate=1000
+step config=flink-p1 target_rate=2000
+engine_ready_seconds=6.0
+target_rate=2000.0 achieved_rate=2000.012 events=60001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=51708 app_min=833 app_max=8688 kafka_min=1088 kafka_max=8932
+raw_output_1 producer_timestamp_ms=1793287059205 sink_timestamp_ms=1793287059480 kafka_append_time=1793287059743
+raw_output_2 producer_timestamp_ms=1793287059200 sink_timestamp_ms=1793287059482 kafka_append_time=1793287059743
+raw_output_3 producer_timestamp_ms=1793287059201 sink_timestamp_ms=1793287059484 kafka_append_time=1793287059743
+step status=PASS config=flink-p1 target_rate=2000
+step config=flink-p1 target_rate=4000
+engine_ready_seconds=6.0
+target_rate=4000.0 achieved_rate=3999.961 events=120001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=103490 app_min=5968 app_max=49321 kafka_min=5995 kafka_max=49323
+raw_output_1 producer_timestamp_ms=1793287131022 sink_timestamp_ms=1793287131279 kafka_append_time=1793287131286
+raw_output_2 producer_timestamp_ms=1793287131022 sink_timestamp_ms=1793287131279 kafka_append_time=1793287131779
+raw_output_3 producer_timestamp_ms=1793287131022 sink_timestamp_ms=1793287131279 kafka_append_time=1793287131779
+step status=PASS config=flink-p1 target_rate=4000
+step config=flink-p1-tuned target_rate=100
+engine_ready_seconds=6.0
+target_rate=100.0 achieved_rate=100.030 events=3001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=2586 app_min=17 app_max=125 kafka_min=19 kafka_max=136
+raw_output_1 producer_timestamp_ms=1793287239922 sink_timestamp_ms=1793287239937 kafka_append_time=1793287239939
+raw_output_2 producer_timestamp_ms=1793287239932 sink_timestamp_ms=1793287240038 kafka_append_time=1793287240050
+raw_output_3 producer_timestamp_ms=1793287239942 sink_timestamp_ms=1793287240040 kafka_append_time=1793287240050
+step status=PASS config=flink-p1-tuned target_rate=100
+step config=flink-p1-tuned target_rate=250
+engine_ready_seconds=5.0
+target_rate=250.0 achieved_rate=250.027 events=7501 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=6465 app_min=14 app_max=139 kafka_min=16 kafka_max=154
+raw_output_1 producer_timestamp_ms=1793287300165 sink_timestamp_ms=1793287300253 kafka_append_time=1793287300265
+raw_output_2 producer_timestamp_ms=1793287300169 sink_timestamp_ms=1793287300254 kafka_append_time=1793287300265
+raw_output_3 producer_timestamp_ms=1793287300173 sink_timestamp_ms=1793287300254 kafka_append_time=1793287300265
+step status=PASS config=flink-p1-tuned target_rate=250
+step config=flink-p1-tuned target_rate=500
+engine_ready_seconds=5.0
+target_rate=500.0 achieved_rate=500.022 events=15001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=12933 app_min=25 app_max=194 kafka_min=27 kafka_max=252
+raw_output_1 producer_timestamp_ms=1793287360237 sink_timestamp_ms=1793287360307 kafka_append_time=1793287360324
+raw_output_2 producer_timestamp_ms=1793287360241 sink_timestamp_ms=1793287360308 kafka_append_time=1793287360324
+raw_output_3 producer_timestamp_ms=1793287360239 sink_timestamp_ms=1793287360308 kafka_append_time=1793287360324
+step status=PASS config=flink-p1-tuned target_rate=500
+step config=flink-p1-tuned target_rate=1000
+engine_ready_seconds=6.0
+target_rate=1000.0 achieved_rate=1000.012 events=30001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=25861 app_min=81 app_max=382 kafka_min=84 kafka_max=492
+raw_output_1 producer_timestamp_ms=1793287420625 sink_timestamp_ms=1793287420665 kafka_append_time=1793287420671
+raw_output_2 producer_timestamp_ms=1793287420628 sink_timestamp_ms=1793287420665 kafka_append_time=1793287420684
+raw_output_3 producer_timestamp_ms=1793287420628 sink_timestamp_ms=1793287420665 kafka_append_time=1793287420684
+step status=PASS config=flink-p1-tuned target_rate=1000
+step config=flink-p1-tuned target_rate=2000
+engine_ready_seconds=5.0
+target_rate=2000.0 achieved_rate=2000.011 events=60001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=51689 app_min=1396 app_max=10011 kafka_min=1401 kafka_max=10501
+raw_output_1 producer_timestamp_ms=1793287481400 sink_timestamp_ms=1793287481432 kafka_append_time=1793287481438
+raw_output_2 producer_timestamp_ms=1793287481400 sink_timestamp_ms=1793287481432 kafka_append_time=1793287481454
+raw_output_3 producer_timestamp_ms=1793287481402 sink_timestamp_ms=1793287481432 kafka_append_time=1793287481454
+step status=PASS config=flink-p1-tuned target_rate=2000
+step config=flink-p1-tuned target_rate=4000
+engine_ready_seconds=6.0
+target_rate=4000.0 achieved_rate=3999.967 events=120001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=103526 app_min=6907 app_max=50211 kafka_min=6931 kafka_max=50511
+raw_output_1 producer_timestamp_ms=1793287553246 sink_timestamp_ms=1793287553363 kafka_append_time=1793287553605
+raw_output_2 producer_timestamp_ms=1793287553246 sink_timestamp_ms=1793287553363 kafka_append_time=1793287553605
+raw_output_3 producer_timestamp_ms=1793287553241 sink_timestamp_ms=1793287553364 kafka_append_time=1793287553605
+step status=PASS config=flink-p1-tuned target_rate=4000
+step config=flink-p2 target_rate=100
+engine_ready_seconds=6.0
+target_rate=100.0 achieved_rate=100.028 events=3001 elapsed_seconds=30.002
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=2585 app_min=121 app_max=2027 kafka_min=124 kafka_max=2127
+raw_output_1 producer_timestamp_ms=1793287664514 sink_timestamp_ms=1793287665075 kafka_append_time=1793287665103
+raw_output_2 producer_timestamp_ms=1793287664524 sink_timestamp_ms=1793287665076 kafka_append_time=1793287665103
+raw_output_3 producer_timestamp_ms=1793287664534 sink_timestamp_ms=1793287665077 kafka_append_time=1793287665104
+step status=PASS config=flink-p2 target_rate=100
+step config=flink-p2 target_rate=250
+engine_ready_seconds=6.0
+target_rate=250.0 achieved_rate=250.030 events=7501 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=6464 app_min=215 app_max=2046 kafka_min=220 kafka_max=2330
+raw_output_1 producer_timestamp_ms=1793287726650 sink_timestamp_ms=1793287726940 kafka_append_time=1793287726946
+raw_output_2 producer_timestamp_ms=1793287726666 sink_timestamp_ms=1793287726940 kafka_append_time=1793287726956
+raw_output_3 producer_timestamp_ms=1793287726670 sink_timestamp_ms=1793287726940 kafka_append_time=1793287726956
+step status=PASS config=flink-p2 target_rate=250
+step config=flink-p2 target_rate=500
+engine_ready_seconds=6.0
+target_rate=500.0 achieved_rate=500.028 events=15001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=12930 app_min=444 app_max=2041 kafka_min=454 kafka_max=2769
+raw_output_1 producer_timestamp_ms=1793287788999 sink_timestamp_ms=1793287789227 kafka_append_time=1793287789234
+raw_output_2 producer_timestamp_ms=1793287789007 sink_timestamp_ms=1793287789228 kafka_append_time=1793287789259
+raw_output_3 producer_timestamp_ms=1793287789009 sink_timestamp_ms=1793287789228 kafka_append_time=1793287789259
+step status=PASS config=flink-p2 target_rate=500
+step config=flink-p2 target_rate=1000
+engine_ready_seconds=6.0
+target_rate=1000.0 achieved_rate=1000.019 events=30001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=25852 app_min=893 app_max=3077 kafka_min=900 kafka_max=3572
+raw_output_1 producer_timestamp_ms=1793287850351 sink_timestamp_ms=1793287850686 kafka_append_time=1793287850699
+raw_output_2 producer_timestamp_ms=1793287850350 sink_timestamp_ms=1793287850704 kafka_append_time=1793287850841
+raw_output_3 producer_timestamp_ms=1793287850352 sink_timestamp_ms=1793287850704 kafka_append_time=1793287850841
+step status=PASS config=flink-p2 target_rate=1000
+step config=flink-p2 target_rate=2000
+engine_ready_seconds=6.0
+target_rate=2000.0 achieved_rate=1999.992 events=60001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=51722 app_min=1760 app_max=12022 kafka_min=1832 kafka_max=12303
+raw_output_1 producer_timestamp_ms=1793287912034 sink_timestamp_ms=1793287912602 kafka_append_time=1793287913177
+raw_output_2 producer_timestamp_ms=1793287912035 sink_timestamp_ms=1793287912602 kafka_append_time=1793287913177
+raw_output_3 producer_timestamp_ms=1793287912037 sink_timestamp_ms=1793287912602 kafka_append_time=1793287913177
+step status=PASS config=flink-p2 target_rate=2000
+step config=flink-p2 target_rate=4000
+engine_ready_seconds=6.0
+target_rate=4000.0 achieved_rate=3999.983 events=120001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=103420 app_min=6897 app_max=50539 kafka_min=6950 kafka_max=50711
+raw_output_1 producer_timestamp_ms=1793287985801 sink_timestamp_ms=1793287986152 kafka_append_time=1793287986836
+raw_output_2 producer_timestamp_ms=1793287985801 sink_timestamp_ms=1793287986153 kafka_append_time=1793287986836
+raw_output_3 producer_timestamp_ms=1793287985801 sink_timestamp_ms=1793287986153 kafka_append_time=1793287986836
+step status=PASS config=flink-p2 target_rate=4000
+step config=spark-default-rerank target_rate=100
+engine_ready_seconds=8.0
+target_rate=100.0 achieved_rate=10.198 events=1372 elapsed_seconds=134.537
+producer_bound=true
+ Container recommender-kafka  Running
+input_event_count=1372 output_distinct_event_id_count=1372 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=955 app_min=93 app_max=121605 kafka_min=95 kafka_max=121611Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+Created topic impressions.
+Created topic recommendations.
+
+raw_output_1 producer_timestamp_ms=1793288098703 sink_timestamp_ms=1793288098921 kafka_append_time=1793288098922
+raw_output_2 producer_timestamp_ms=1793288098713 sink_timestamp_ms=1793288099232 kafka_append_time=1793288099238
+raw_output_3 producer_timestamp_ms=1793288098783 sink_timestamp_ms=1793288099232 kafka_append_time=1793288099238
+step status=PASS config=spark-default-rerank target_rate=100
+step config=spark-default-rerank target_rate=250
+engine_ready_seconds=7.0
+target_rate=250.0 achieved_rate=250.030 events=7501 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=6467 app_min=79 app_max=731 kafka_min=83 kafka_max=736
+raw_output_1 producer_timestamp_ms=1793288255558 sink_timestamp_ms=1793288255751 kafka_append_time=1793288255752
+raw_output_2 producer_timestamp_ms=1793288255566 sink_timestamp_ms=1793288255751 kafka_append_time=1793288255752
+raw_output_3 producer_timestamp_ms=1793288255574 sink_timestamp_ms=1793288255952 kafka_append_time=1793288255957
+step status=PASS config=spark-default-rerank target_rate=250
+step config=spark-default-rerank target_rate=500
+engine_ready_seconds=7.0
+target_rate=500.0 achieved_rate=500.021 events=15001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=12927 app_min=96 app_max=757 kafka_min=100 kafka_max=794
+raw_output_1 producer_timestamp_ms=1793288309282 sink_timestamp_ms=1793288309549 kafka_append_time=1793288309551
+raw_output_2 producer_timestamp_ms=1793288309284 sink_timestamp_ms=1793288309549 kafka_append_time=1793288309551
+raw_output_3 producer_timestamp_ms=1793288309288 sink_timestamp_ms=1793288309851 kafka_append_time=1793288309857
+step status=PASS config=spark-default-rerank target_rate=500
+step config=spark-default-rerank target_rate=1000
+engine_ready_seconds=8.1
+target_rate=1000.0 achieved_rate=1000.013 events=30001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=25854 app_min=215 app_max=1169 kafka_min=218 kafka_max=1174
+raw_output_1 producer_timestamp_ms=1793288363842 sink_timestamp_ms=1793288364034 kafka_append_time=1793288364039
+raw_output_2 producer_timestamp_ms=1793288363846 sink_timestamp_ms=1793288364034 kafka_append_time=1793288364039
+raw_output_3 producer_timestamp_ms=1793288363849 sink_timestamp_ms=1793288364034 kafka_append_time=1793288364039
+step status=PASS config=spark-default-rerank target_rate=1000
+step config=spark-default-rerank target_rate=2000
+engine_ready_seconds=7.0
+target_rate=2000.0 achieved_rate=1999.995 events=60001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=51785 app_min=1978 app_max=17608 kafka_min=1981 kafka_max=17613
+raw_output_1 producer_timestamp_ms=1793288418564 sink_timestamp_ms=1793288418840 kafka_append_time=1793288418846
+raw_output_2 producer_timestamp_ms=1793288418565 sink_timestamp_ms=1793288418841 kafka_append_time=1793288418846
+raw_output_3 producer_timestamp_ms=1793288418566 sink_timestamp_ms=1793288418841 kafka_append_time=1793288418846
+step status=PASS config=spark-default-rerank target_rate=2000
+step config=spark-default-rerank target_rate=4000
+engine_ready_seconds=7.0
+target_rate=4000.0 achieved_rate=3999.977 events=120001 elapsed_seconds=30.000
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=2 cpu_method=v2
+latency_samples_used=103439 app_min=6309 app_max=55509 kafka_min=6309 kafka_max=55512
+raw_output_1 producer_timestamp_ms=1793288486041 sink_timestamp_ms=1793288486368 kafka_append_time=1793288486373
+raw_output_2 producer_timestamp_ms=1793288486041 sink_timestamp_ms=1793288486368 kafka_append_time=1793288486373
+raw_output_3 producer_timestamp_ms=1793288486042 sink_timestamp_ms=1793288486369 kafka_append_time=1793288486373
+step status=PASS config=spark-default-rerank target_rate=4000
+step config=flink-p1-rerank target_rate=100
+engine_ready_seconds=6.0
+target_rate=100.0 achieved_rate=99.974 events=3001 elapsed_seconds=30.018
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=3001 output_distinct_event_id_count=3001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=2588 app_min=112 app_max=2015 kafka_min=121 kafka_max=2132
+raw_output_1 producer_timestamp_ms=1793288592855 sink_timestamp_ms=1793288593294 kafka_append_time=1793288593315
+raw_output_2 producer_timestamp_ms=1793288592865 sink_timestamp_ms=1793288593294 kafka_append_time=1793288593315
+raw_output_3 producer_timestamp_ms=1793288592875 sink_timestamp_ms=1793288593294 kafka_append_time=1793288593315
+step status=PASS config=flink-p1-rerank target_rate=100
+step config=flink-p1-rerank target_rate=250
+engine_ready_seconds=6.0
+target_rate=250.0 achieved_rate=250.025 events=7501 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=7501 output_distinct_event_id_count=7501 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=6472 app_min=276 app_max=2040 kafka_min=285 kafka_max=2338
+raw_output_1 producer_timestamp_ms=1793288654168 sink_timestamp_ms=1793288654542 kafka_append_time=1793288654548
+raw_output_2 producer_timestamp_ms=1793288654172 sink_timestamp_ms=1793288654542 kafka_append_time=1793288654587
+raw_output_3 producer_timestamp_ms=1793288654176 sink_timestamp_ms=1793288654543 kafka_append_time=1793288654587
+step status=PASS config=flink-p1-rerank target_rate=250
+step config=flink-p1-rerank target_rate=500
+engine_ready_seconds=6.0
+target_rate=500.0 achieved_rate=500.024 events=15001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=15001 output_distinct_event_id_count=15001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=12937 app_min=425 app_max=2072 kafka_min=445 kafka_max=2496
+raw_output_1 producer_timestamp_ms=1793288714734 sink_timestamp_ms=1793288715165 kafka_append_time=1793288715265
+raw_output_2 producer_timestamp_ms=1793288714732 sink_timestamp_ms=1793288715166 kafka_append_time=1793288715265
+raw_output_3 producer_timestamp_ms=1793288714736 sink_timestamp_ms=1793288715167 kafka_append_time=1793288715265
+step status=PASS config=flink-p1-rerank target_rate=500
+step config=flink-p1-rerank target_rate=1000
+engine_ready_seconds=6.0
+target_rate=1000.0 achieved_rate=999.982 events=30001 elapsed_seconds=30.002
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=30001 output_distinct_event_id_count=30001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=25848 app_min=459 app_max=2126 kafka_min=472 kafka_max=2277
+raw_output_1 producer_timestamp_ms=1793288775121 sink_timestamp_ms=1793288775576 kafka_append_time=1793288775795
+raw_output_2 producer_timestamp_ms=1793288775124 sink_timestamp_ms=1793288775577 kafka_append_time=1793288775795
+raw_output_3 producer_timestamp_ms=1793288775122 sink_timestamp_ms=1793288775577 kafka_append_time=1793288775795
+step status=PASS config=flink-p1-rerank target_rate=1000
+step config=flink-p1-rerank target_rate=2000
+engine_ready_seconds=6.0
+target_rate=2000.0 achieved_rate=1999.977 events=60001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=60001 output_distinct_event_id_count=60001 drain_result=PASS partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=51706 app_min=642 app_max=6753 kafka_min=660 kafka_max=7025
+raw_output_1 producer_timestamp_ms=1793288838148 sink_timestamp_ms=1793288838396 kafka_append_time=1793288838637Created topic impressions.
+Created topic recommendations.
+
+raw_output_2 producer_timestamp_ms=1793288838149 sink_timestamp_ms=1793288838398 kafka_append_time=1793288838637
+raw_output_3 producer_timestamp_ms=1793288838149 sink_timestamp_ms=1793288838399 kafka_append_time=1793288838637
+step status=PASS config=flink-p1-rerank target_rate=2000
+step config=flink-p1-rerank target_rate=4000
+engine_ready_seconds=6.0
+target_rate=4000.0 achieved_rate=3999.957 events=120001 elapsed_seconds=30.001
+producer_bound=false
+ Container recommender-kafka  Running
+input_event_count=120001 output_distinct_event_id_count=120001 drain_result=FAIL partitions=2 parallelism_actual=1 cpu_method=v2
+latency_samples_used=103427 app_min=5353 app_max=40378 kafka_min=5376 kafka_max=40555
+raw_output_1 producer_timestamp_ms=1793288908250 sink_timestamp_ms=1793288908426 kafka_append_time=1793288908735
+raw_output_2 producer_timestamp_ms=1793288908251 sink_timestamp_ms=1793288908427 kafka_append_time=1793288908735
+raw_output_3 producer_timestamp_ms=1793288908251 sink_timestamp_ms=1793288908428 kafka_append_time=1793288908735
+step status=PASS config=flink-p1-rerank target_rate=4000
+total_wall_seconds=2795.382
+saturation_rate config=spark-default rate=2000
+saturation_rate config=spark-1s rate=2000
+saturation_rate config=flink-p1 rate=100
+saturation_rate config=flink-p1-tuned rate=2000
+saturation_rate config=flink-p2 rate=2000
+saturation_rate config=spark-default-rerank rate=100
+saturation_rate config=flink-p1-rerank rate=2000
+proposed_low_rate=100
+proposed_high_rate=100
+probe_report=logs/probe_report.txt

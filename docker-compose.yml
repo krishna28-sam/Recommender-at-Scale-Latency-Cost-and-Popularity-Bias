@@ -44,6 +44,7 @@ services:
       DATA_ROOT: ${DATA_ROOT:-data/raw}
     volumes:
       - ./data:/app/data:ro
+      - ./data/processed/model_tables:/app/data/processed/model_tables:ro
     command: ["--behaviors", "/app/${DATA_ROOT:-data/raw}/MINDsmall_dev/behaviors.tsv", "--rate", "${PRODUCER_RATE:-100}", "--seconds", "${PRODUCER_SECONDS:-30}"]
     depends_on:
       kafka:
@@ -63,9 +64,16 @@ services:
       BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS:-kafka:9092}
       RUN_ID: ${RUN_ID:-smoke}
       DATA_ROOT: ${DATA_ROOT:-data/raw}
+      SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-3g}
+      MODEL_TABLE_DIR: /app/data/processed/model_tables
+      ENGINE_MODE: ${ENGINE_MODE:-score}
+      MAPPING: ${MAPPING:-random_101}
+      LAMBDA: ${LAMBDA:-0.0}
+      SPARK_TRIGGER: ${SPARK_TRIGGER:-}
     volumes:
       - ./data:/app/data:ro
-    command: ["/opt/spark/bin/spark-submit", "--master", "local[2]", "spark/pass_through.py"]
+      - ./data/processed/model_tables:/app/data/processed/model_tables:ro
+    command: ["/opt/spark/bin/spark-submit", "--master", "local[2]", "--driver-memory", "${SPARK_DRIVER_MEMORY:-3g}", "spark/pass_through.py"]
     depends_on:
       kafka:
         condition: service_healthy
@@ -84,9 +92,19 @@ services:
       BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS:-kafka:9092}
       FLINK_PARALLELISM: ${FLINK_PARALLELISM:-1}
       DATA_ROOT: ${DATA_ROOT:-data/raw}
+      FLINK_ENV_JAVA_OPTS: ${FLINK_ENV_JAVA_OPTS:--Xms512m -Xmx3g}
+      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:--add-opens=java.base/java.util=ALL-UNNAMED}
+      JAVA_OPTS: ${JAVA_OPTS:---add-opens=java.base/java.util=ALL-UNNAMED}
+      JVM_ARGS: ${JVM_ARGS:---add-opens=java.base/java.util=ALL-UNNAMED}
+      MODEL_TABLE_DIR: /app/data/processed/model_tables
+      ENGINE_MODE: ${ENGINE_MODE:-score}
+      MAPPING: ${MAPPING:-random_101}
+      LAMBDA: ${LAMBDA:-0.0}
+      FLINK_BUNDLE_TIME_MS: ${FLINK_BUNDLE_TIME_MS:-}
     volumes:
       - ./data:/app/data:ro
-    command: ["python", "flink/pass_through.py", "--parallelism", "${FLINK_PARALLELISM:-1}"]
+      - ./data/processed/model_tables:/app/data/processed/model_tables:ro
+    command: ["sh", "-c", "export FLINK_ENV_JAVA_OPTS='${FLINK_ENV_JAVA_OPTS:--Xms512m -Xmx3g}'; export JAVA_TOOL_OPTIONS='${JAVA_TOOL_OPTIONS:--add-opens=java.base/java.util=ALL-UNNAMED}'; export JAVA_OPTS='${JAVA_OPTS:---add-opens=java.base/java.util=ALL-UNNAMED}'; export JVM_ARGS='${JVM_ARGS:---add-opens=java.base/java.util=ALL-UNNAMED}'; export FLINK_BUNDLE_TIME_MS='${FLINK_BUNDLE_TIME_MS:-}'; exec python flink/pass_through.py --parallelism '${FLINK_PARALLELISM:-1}'"]
     depends_on:
       kafka:
         condition: service_healthy

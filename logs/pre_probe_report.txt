@@ -1,0 +1,116 @@
+PRE-PROBE REPORT
+Generated at 2026-10-29T11:58:41+05:30
+No capacity probe or benchmark matrix was started.
+
+PART A: PRODUCER-ALONE CHECK
+Fresh Kafka topics were created before these producer-only runs; no engine container was started.
+target_rate=50.0 achieved_rate=50.095 events=501 elapsed_seconds=10.001 producer_bound=false
+target_rate=200.0 achieved_rate=200.086 events=2001 elapsed_seconds=10.001 producer_bound=false
+target_rate=1000.0 achieved_rate=1000.038 events=10001 elapsed_seconds=10.001 producer_bound=false
+target_rate=4000.0 achieved_rate=3999.838 events=40001 elapsed_seconds=10.001 producer_bound=false
+Highest target sustained within 10%: 4000 ev/s, based on the 10-second producer-only output above.
+
+PART B: BOOTSTRAP CHECK
+Bootstrap seed: 20261028
+Bootstrap resamples: 1000
+category_404 0.0 exposure_l1 1.012771826559147 1.0127718265591472 1.009621673000288 1.0161510357414836 73152 1000 True
+category_404 0.0 publisher_gini 0.6764410721430199 0.6764410721430195 0.6749854231722515 0.6780157852230331 73152 1000 True
+category_404 0.0 ndcg_at_5_served 0.30725072747627213 0.3072507274763121 0.3048525907280974 0.30974059989086467 73152 1000 True
+category_404 5.0 exposure_l1 0.6020813501738931 0.6020813501738937 0.5986091439149167 0.6056535632792978 73152 1000 True
+category_404 5.0 publisher_gini 0.44642752619274245 0.44642752619274273 0.4445517828993907 0.44848647386926815 73152 1000 True
+category_404 5.0 ndcg_at_5_served 0.29719357784091516 0.29719357784094785 0.29480554243711826 0.29991536254437445 73152 1000 True
+random_101 0.0 exposure_l1 1.0305001337902622 1.0305001337902628 1.0271678432465579 1.0334956408434608 73152 1000 True
+random_101 0.0 publisher_gini 0.6776917047402352 0.6776917047402357 0.6761181527755664 0.6791578262632623 73152 1000 True
+random_101 0.0 ndcg_at_5_served 0.30725072747627213 0.3072507274763121 0.3048525907280974 0.30974059989086467 73152 1000 True
+random_101 5.0 exposure_l1 0.5782650106021295 0.5782650106021304 0.5749710601774277 0.582235035880717 73152 1000 True
+random_101 5.0 publisher_gini 0.4161336788256436 0.4161336788256442 0.41410383017193453 0.41821502599416677 73152 1000 True
+random_101 5.0 ndcg_at_5_served 0.2973894495858556 0.2973894495858886 0.2947753879460979 0.29989629211719393 73152 1000 True
+CI_CHECK=PASS
+
+PART C: MATRIX DESIGN DECISION
+Input partitions per matrix run: 2.
+Fresh topics per run: required; runner topic lifecycle recreates both topics before every run.
+Lambda-zero grid runs: 24 = 4 configurations x 2 rates x 3 repetitions.
+Lambda-zero grid configurations: Spark default trigger, Spark 1 s trigger, Flink parallelism 1, Flink parallelism 2.
+Lambda-zero comparison: order-independent set of served_top_k per event_id against offline reference.
+Reranker overhead runs: 18 = 2 engines x 3 lambdas (0.0, 0.3, 0.6) x 3 repetitions.
+Reranker overhead configurations: Spark default trigger and Flink parallelism 1 only.
+Reranker overhead comparison: aggregate exposure shares against offline reference within tolerance; no byte equality requirement.
+Stateful lambda with Flink parallelism greater than 1: runner FAILS.
+Observed smoke wall time Spark seconds: 32.151806592941284.
+Observed smoke wall time Flink seconds: 45.256874799728394.
+Observed smoke average wall seconds: 38.70434069633484
+Derived startup-drain estimate seconds: average smoke wall minus 20-second producer replay = 18.70434069633484
+Total matrix hours using 30-second warmup + 120-second measurement + derived overhead: 1.9682173081239065
+MATRIX_HOURS_ESTIMATE_IS_NOT_A_BENCHMARK=TRUE
+
+PART D: RESOURCE AND DESIGN FACTS
+Actual docker inspect values:
+container=/recommender-kafka NanoCpus=1500000000 Memory=2684354560
+container=preprobe-spark NOT RUN at inspection time
+container=preprobe-flink NOT RUN at inspection time
+container=preprobe-producer NOT RUN at inspection time
+Starting temporary Spark engine container to read the live cgroup counter; this is not a benchmark.
+cpu_method=cgroup v2
+cpu_counter_path=/sys/fs/cgroup/cpu.stat
+usage_usec=15109679
+container=/preprobe-spark NanoCpus=2500000000 Memory=4294967296
+container=/preprobe-flink NanoCpus=2500000000 Memory=4294967296
+container=/preprobe-producer NanoCpus=500000000 Memory=536870912
+Input/output count rule: input count is the producer distinct event_id count; output count is the recommendations distinct event_id count; mismatch fails the run.
+Make-target grep used:
+6:.PHONY: help data synthetic movielens eda mappings tables predictions offline hash-users up down topics test smoke
+9:	@echo "make data DATA_ROOT=... | synthetic | eda | mappings | tables | predictions | offline | hash-users | up | down | topics | test | smoke"
+14:synthetic:
+15:	$(PYTHON) scripts/make_synthetic_mind.py --output-root data/synthetic
+17:movielens:
+18:	$(PYTHON) scripts/movielens_to_mind.py --data-root $(DATA_ROOT) --output-root data/raw
+20:eda:
+21:	$(PYTHON) scripts/eda.py --train $(DATA_ROOT)/MINDsmall_train --dev $(DATA_ROOT)/MINDsmall_dev --output data/processed/eda.json
+23:mappings:
+24:	$(PYTHON) scripts/generate_publishers.py --train-news $(DATA_ROOT)/MINDsmall_train/news.tsv --dev-news $(DATA_ROOT)/MINDsmall_dev/news.tsv --output-dir data/processed/publishers
+26:tables:
+27:	$(PYTHON) recsys/build_tables.py --train-dir $(DATA_ROOT)/MINDsmall_train --dev-dir $(DATA_ROOT)/MINDsmall_dev --output-dir data/processed/model_tables --publisher-dir data/processed/publishers
+29:predictions:
+30:	$(PYTHON) bias/make_predictions.py --behaviors $(DATA_ROOT)/MINDsmall_dev/behaviors.tsv --item-stats data/processed/model_tables/item_stats.json --target-dir data/processed/model_tables --train-news $(DATA_ROOT)/MINDsmall_train/news.tsv --dev-news $(DATA_ROOT)/MINDsmall_dev/news.tsv --mapping-dir data/processed/publishers --output-dir data/outputs/dev_predictions
+32:offline:
+33:	$(PYTHON) bias/offline_metrics.py --behaviors $(DATA_ROOT)/MINDsmall_dev/behaviors.tsv --train-behaviors $(DATA_ROOT)/MINDsmall_train/behaviors.tsv --predictions data/outputs/dev_predictions --item-stats data/processed/model_tables/item_stats.json --train-news $(DATA_ROOT)/MINDsmall_train/news.tsv --output data/processed/bias_summary.json
+35:hash-users:
+37:	$(PYTHON) scripts/hash_users.py --input $(DATA_ROOT)/MINDsmall_dev/behaviors.tsv --output data/processed/dev_behaviors_hashed.tsv
+MIND source checksum file:
+d6ce515dcaa6b6d47ddf0a326eebc8a31b84735ae410285c9882ca2a06eec669  data/raw/_dl/MINDsmall_dev.zip
+6ef97a271580b98ccfc4301ada55cc639423cb0576a78b8dcfcf74a4dbcc3194  data/raw/_dl/MINDsmall_train.zip
+MIND file SHA-256:
+a424547c8fa17c9ea4879c2110221c2b2f2709f4f7615ede0b0d8e4765158658  data/raw/MINDsmall_train/behaviors.tsv
+cd49d7da275e9c405f627d75a0de9d4ec6ad43ff8a8db5d23a447591676e09d6  data/raw/MINDsmall_train/news.tsv
+b6c460e33b1a8693252ded6e626da7d3ccf78920eea2ec11889020bb7d8443ef  data/raw/MINDsmall_dev/behaviors.tsv
+e5d144667558c449d16084fe6bfa01940c2f5d5785ea9f9110292bc3b94eb822  data/raw/MINDsmall_dev/news.tsv
+Recorded source: Hugging Face Recommenders/MIND, Microsoft Research License; source citation is MIND (Wu et al., ACL 2020).
+
+PART E: MACHINE STATE
+ 12:01:07 up  2:24,  1 user,  load average: 2.40, 1.87, 2.39
+               total        used        free      shared  buff/cache   available
+Mem:           7.4Gi       3.1Gi       1.6Gi       346Mi       2.8Gi       3.7Gi
+Swap:          8.0Gi       3.3Gi       4.7Gi
+CONTAINER ID   IMAGE                COMMAND                  CREATED       STATUS                 PORTS                                                                                          NAMES
+73e60005f2b4   apache/kafka:3.8.1   "/__cacert_entrypoin…"   2 hours ago   Up 2 hours (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp, 0.0.0.0:29092->29092/tcp, [::]:29092->29092/tcp   recommender-kafka
+12
+cpuset cpu io memory hugetlb pids rdma misc
+Model name:                              12th Gen Intel(R) Core(TM) i5-1235U
+performance
+
+PART RESULTS
+PART A=PASS
+PART B=PASS
+PART C=PASS
+PART D=PASS
+PART E=PASS
+NOT RUN: capacity probe; user explicitly prohibited it.
+NOT RUN: benchmark matrix; user explicitly prohibited it.
+
+IMPLEMENTATION VALIDATION
+........                                                                 [100%]
+8 passed in 0.12s
+tests_exit=0
+compile_exit=0
+git_diff_check_exit=0

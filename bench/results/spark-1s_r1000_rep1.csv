@@ -1,0 +1,2 @@
+achieved_rate,producer_bound,output_throughput,latency_p50_app,latency_p95_app,latency_p99_app,latency_p50_kafka,latency_p95_kafka,latency_p99_kafka,lag_trend,loss,cpu_seconds,peak_memory_bytes,cpu_method,status,drain_seconds,backlog_at_window_end
+1000.006,false,1008.551,922.000,1355.000,1468.000,926.000,1359.000,1479.000,-2.242,0.000000,63.377,736923648,cgroup_v2_usage_usec,PASS,2.000,618

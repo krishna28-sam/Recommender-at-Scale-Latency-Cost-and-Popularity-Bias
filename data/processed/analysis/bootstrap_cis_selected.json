@@ -1,0 +1,424 @@
+{
+  "bootstrap_cis": [
+    {
+      "mapping": "category_404",
+      "lambda": "0.0",
+      "metric": "exposure_l1",
+      "mean": 1.0127718265591472,
+      "low": 1.009621673000288,
+      "high": 1.0161510357414836,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.0",
+      "metric": "publisher_gini",
+      "mean": 0.6764410721430195,
+      "low": 0.6749854231722515,
+      "high": 0.6780157852230331,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3072507274763121,
+      "low": 0.3048525907280974,
+      "high": 0.30974059989086467,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.1",
+      "metric": "exposure_l1",
+      "mean": 0.9656613557624634,
+      "low": 0.9619827170284154,
+      "high": 0.9692618833417125,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.1",
+      "metric": "publisher_gini",
+      "mean": 0.6568167623467888,
+      "low": 0.6552368726717764,
+      "high": 0.6585375119165539,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.1",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3037026202318122,
+      "low": 0.3013668861373659,
+      "high": 0.30615533054284266,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.3",
+      "metric": "exposure_l1",
+      "mean": 0.9299422970696466,
+      "low": 0.9266416879840315,
+      "high": 0.9339423742285492,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.3",
+      "metric": "publisher_gini",
+      "mean": 0.6422214649232644,
+      "low": 0.6406074087915342,
+      "high": 0.6439404899148173,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.3",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3035827184208328,
+      "low": 0.3012644919939941,
+      "high": 0.30608989434966377,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.6",
+      "metric": "exposure_l1",
+      "mean": 0.8880221287840827,
+      "low": 0.8845209784749839,
+      "high": 0.8916564389406071,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.6",
+      "metric": "publisher_gini",
+      "mean": 0.6205605007517592,
+      "low": 0.6188624019850861,
+      "high": 0.6222486186580037,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "0.6",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30390845489187385,
+      "low": 0.3015897613322929,
+      "high": 0.3064596682612672,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "1.0",
+      "metric": "exposure_l1",
+      "mean": 0.8413833971430545,
+      "low": 0.8379638042233343,
+      "high": 0.8449494079728933,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "1.0",
+      "metric": "publisher_gini",
+      "mean": 0.5939763420481186,
+      "low": 0.5922323659377718,
+      "high": 0.5957613109548408,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "1.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30398744429280683,
+      "low": 0.30155534398885175,
+      "high": 0.3065095130847773,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "2.0",
+      "metric": "exposure_l1",
+      "mean": 0.7493668897678943,
+      "low": 0.7454694807132881,
+      "high": 0.7528795050538676,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "2.0",
+      "metric": "publisher_gini",
+      "mean": 0.5408018902959747,
+      "low": 0.538996954005816,
+      "high": 0.5426651850592117,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "2.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3023863805975277,
+      "low": 0.299936459323446,
+      "high": 0.30498577490921636,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "5.0",
+      "metric": "exposure_l1",
+      "mean": 0.6020813501738937,
+      "low": 0.5986091439149167,
+      "high": 0.6056535632792978,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "5.0",
+      "metric": "publisher_gini",
+      "mean": 0.44642752619274273,
+      "low": 0.4445517828993907,
+      "high": 0.44848647386926815,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "category_404",
+      "lambda": "5.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.29719357784094785,
+      "low": 0.29480554243711826,
+      "high": 0.29991536254437445,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.0",
+      "metric": "exposure_l1",
+      "mean": 1.0305001337902628,
+      "low": 1.0271678432465579,
+      "high": 1.0334956408434608,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.0",
+      "metric": "publisher_gini",
+      "mean": 0.6776917047402357,
+      "low": 0.6761181527755664,
+      "high": 0.6791578262632623,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3072507274763121,
+      "low": 0.3048525907280974,
+      "high": 0.30974059989086467,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.1",
+      "metric": "exposure_l1",
+      "mean": 0.9809747306782091,
+      "low": 0.9777363589090219,
+      "high": 0.9843274658485627,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.1",
+      "metric": "publisher_gini",
+      "mean": 0.6503185785683834,
+      "low": 0.6486900570490138,
+      "high": 0.6519511651174825,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.1",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30388500218366266,
+      "low": 0.3014691493062749,
+      "high": 0.3064133882453528,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.3",
+      "metric": "exposure_l1",
+      "mean": 0.9510510629264505,
+      "low": 0.9475711102885616,
+      "high": 0.9542291939169774,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.3",
+      "metric": "publisher_gini",
+      "mean": 0.6338678914384485,
+      "low": 0.6321735075028225,
+      "high": 0.6355516613735055,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.3",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.3032874592776775,
+      "low": 0.30084414615585986,
+      "high": 0.305812909811797,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.6",
+      "metric": "exposure_l1",
+      "mean": 0.9067581439711871,
+      "low": 0.9034560136833364,
+      "high": 0.9100607779544064,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.6",
+      "metric": "publisher_gini",
+      "mean": 0.6103759613439301,
+      "low": 0.6086728791698488,
+      "high": 0.6120705608744925,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "0.6",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30297582438101817,
+      "low": 0.30054716461478076,
+      "high": 0.30549760173894197,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "1.0",
+      "metric": "exposure_l1",
+      "mean": 0.859249561341848,
+      "low": 0.8557818912404189,
+      "high": 0.8625255995648219,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "1.0",
+      "metric": "publisher_gini",
+      "mean": 0.5827998565931111,
+      "low": 0.5809965831569825,
+      "high": 0.584631145668535,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "1.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30281494400766157,
+      "low": 0.3002843086098274,
+      "high": 0.30534646216170064,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "2.0",
+      "metric": "exposure_l1",
+      "mean": 0.7547940433464331,
+      "low": 0.7513883510811794,
+      "high": 0.7584307466131781,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "2.0",
+      "metric": "publisher_gini",
+      "mean": 0.5222712856496611,
+      "low": 0.5204061592819286,
+      "high": 0.5242021094018944,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "2.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.30133071407597345,
+      "low": 0.29871765637831216,
+      "high": 0.30390530884953937,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "5.0",
+      "metric": "exposure_l1",
+      "mean": 0.5782650106021304,
+      "low": 0.5749710601774277,
+      "high": 0.582235035880717,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "5.0",
+      "metric": "publisher_gini",
+      "mean": 0.4161336788256442,
+      "low": 0.41410383017193453,
+      "high": 0.41821502599416677,
+      "n": 73152,
+      "resamples": 1000
+    },
+    {
+      "mapping": "random_101",
+      "lambda": "5.0",
+      "metric": "ndcg_at_5_served",
+      "mean": 0.2973894495858886,
+      "low": 0.2947753879460979,
+      "high": 0.29989629211719393,
+      "n": 73152,
+      "resamples": 1000
+    }
+  ]
+}

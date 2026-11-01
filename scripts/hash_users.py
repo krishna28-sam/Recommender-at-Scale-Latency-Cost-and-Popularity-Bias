@@ -30,9 +30,14 @@ def main():
             raw_ids.add(row[1])
             row[1] = hash_user(row[1], salt)
             writer.writerow(row)
-    output_text = args.output.read_text()
-    if any(raw_id and raw_id in output_text for raw_id in raw_ids):
-        raise RuntimeError("raw user ID found in hashed output")
+    bad = 0
+    with args.output.open(encoding="utf-8") as check:
+        for line in check:
+            user = line.split("\t", 2)[1]
+            if user in raw_ids or len(user) != 64:
+                bad += 1
+    if bad:
+        raise RuntimeError("{} rows with a raw or malformed user ID in hashed output".format(bad))
     print("hashed {} behavior rows; raw user IDs were not written".format(len(raw_ids)))
 
 

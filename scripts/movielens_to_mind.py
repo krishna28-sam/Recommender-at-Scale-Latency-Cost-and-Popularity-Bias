@@ -158,6 +158,17 @@ def main():
     parser.add_argument("--output-root", type=Path, default=Path("data/raw"))
     parser.add_argument("--config", type=Path, default=Path("config/model.yaml"))
     args = parser.parse_args()
+    output_root = args.output_root.resolve()
+    forbidden_root = (Path("data/raw")).resolve()
+    if output_root == forbidden_root or forbidden_root in output_root.parents:
+        raise SystemExit(
+            "Refusing MovieLens conversion: output must not be data/raw or "
+            "inside data/raw")
+    if any(path.name.startswith("MINDsmall_")
+           for path in output_root.glob("MINDsmall_*")):
+        raise SystemExit(
+            "Refusing MovieLens conversion: output folder contains MINDsmall_* "
+            "directory; choose an empty data/movielens_derived folder")
     source = args.data_root / "ml-25m"
     ratings_path, movies_path = source / "ratings.csv", source / "movies.csv"
     if not ratings_path.exists() or not movies_path.exists():

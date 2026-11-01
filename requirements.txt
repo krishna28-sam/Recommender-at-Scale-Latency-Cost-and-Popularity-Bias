@@ -7,3 +7,8 @@ scipy==1.14.1
 apache-flink==1.20.1
 pyspark==3.5.3
 pytest==8.3.3
+matplotlib==3.8.4
+python-docx==1.1.2
+pyarrow==11.0.0
+nbconvert==7.16.4
+ipykernel==6.29.5

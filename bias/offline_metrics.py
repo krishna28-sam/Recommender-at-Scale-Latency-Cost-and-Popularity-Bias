@@ -49,6 +49,15 @@ def compute_ndcg(labels, k):
     return dcg(labels[:k], k) / float(dcg(ideal, k)) if dcg(ideal, k) else 0.0
 
 
+def compute_served_ndcg(labels, served_labels, k):
+    """Score a served prefix against the impression's full candidate ideal."""
+    if k <= 0:
+        return 0.0
+    ideal = sorted(labels, reverse=True)[:k]
+    ideal_dcg = dcg(ideal, k)
+    return dcg(served_labels[:k], k) / float(ideal_dcg) if ideal_dcg else 0.0
+
+
 def compute_exposure_l1(exposure, target_shares):
     total_exposure = float(sum(exposure.values()))
     if not total_exposure:
@@ -68,6 +77,20 @@ def iter_prediction_files(predictions):
                 yield path
 
 
+def load_train_known(path):
+    train_known = set()
+    with path.open(encoding="utf-8") as handle:
+        for row in csv.reader(handle, delimiter="\t"):
+            if len(row) != 5:
+                continue
+            train_known.update(token for token in row[3].split() if token.startswith("N"))
+            for token in row[4].split():
+                item_id, label = token.rsplit("-", 1)
+                if label == "1":
+                    train_known.add(item_id)
+    return train_known
+
+
 def summarize_prediction_file(path, catalog, item_stats, train_known, target_shares):
     mapping_name = path.parent.name
     lambda_name = path.stem.split("lambda_", 1)[1]
@@ -76,6 +99,8 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, target_sha
     category_exposure = Counter()
     aucs, mrrs, ndcg5, ndcg10, served_ndcg5 = [], [], [], [], []
     cold_aucs, cold_ndcg5, cold_ndcg10, cold_mrrs = [], [], [], []
+    cold_candidate_count = cold_candidate_total = 0
+    cold_positive_count = cold_positive_total = 0
     with path.open(encoding="utf-8") as handle:
         for line in handle:
             record = json.loads(line)
@@ -87,8 +112,13 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, target_sha
             ndcg10.append(compute_ndcg(labels, 10))
             served_labels = [record["labels"].get(item, 0)
                              for item in record.get("served_top_k", [])]
-            served_ndcg5.append(compute_ndcg(served_labels, 5))
+            served_ndcg5.append(compute_served_ndcg(labels, served_labels, 5))
             cold_items = [item for item in record["ranked_candidates"] if item not in train_known]
+            cold_candidate_count += len(cold_items)
+            cold_candidate_total += len(record["ranked_candidates"])
+            cold_positive_count += sum(record["labels"].get(item, 0) for item in cold_items)
+            cold_positive_total += sum(record["labels"].get(item, 0)
+                                       for item in record["ranked_candidates"])
             if cold_items:
                 cold_labels = [record["labels"].get(item, 0) for item in cold_items]
                 cold_aucs.append(compute_auc(cold_labels))
@@ -119,6 +149,10 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, target_sha
         "cold_mrr": sum(cold_mrrs) / len(cold_mrrs) if cold_mrrs else 0.0,
         "cold_ndcg@5": sum(cold_ndcg5) / len(cold_ndcg5) if cold_ndcg5 else 0.0,
         "cold_ndcg@10": sum(cold_ndcg10) / len(cold_ndcg10) if cold_ndcg10 else 0.0,
+        "cold_candidate_share": (cold_candidate_count / float(cold_candidate_total)
+                                 if cold_candidate_total else 0.0),
+        "cold_positive_share": (cold_positive_count / float(cold_positive_total)
+                                if cold_positive_total else 0.0),
         "publisher_gini": gini(exposure.values()),
         "item_gini": gini(item_exposure.values()),
         "category_gini": gini(category_exposure.values()),
@@ -145,6 +179,7 @@ def summarize_prediction_file(path, catalog, item_stats, train_known, target_sha
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--behaviors", type=Path, required=True)
+    parser.add_argument("--train-behaviors", type=Path, required=True)
     parser.add_argument("--predictions", type=Path, required=True)
     parser.add_argument("--item-stats", type=Path, required=True)
     parser.add_argument("--train-news", type=Path, required=True)
@@ -157,18 +192,7 @@ def main():
         for row in csv.reader(handle, delimiter="\t"):
             if len(row) == 8:
                 catalog[row[0]] = row[1]
-    train_known = set()
-    with args.behaviors.open(encoding="utf-8") as handle:
-        for row in csv.reader(handle, delimiter="\t"):
-            if len(row) != 5:
-                continue
-            for token in row[3].split():
-                if token.startswith("N"):
-                    train_known.add(token)
-            for token in row[4].split():
-                item_id, label = token.rsplit("-", 1)
-                if label == "1":
-                    train_known.add(item_id)
+    train_known = load_train_known(args.train_behaviors)
 
     reranker_sweep = {}
     for prediction_file in iter_prediction_files(args.predictions):
@@ -198,13 +222,15 @@ def main():
             writer.writerow(row)
 
     print("wrote {} and {}".format(args.output, csv_path))
-    print("mapping\tlambda\tauc\tndcg@10\tpublisher_gini\texposure_l1\tndcg_at_5_served")
+    print("mapping\tlambda\tauc\tndcg@10\tpublisher_gini\texposure_l1\t"
+          "ndcg_at_5_served\tcold_candidate_share\tcold_positive_share")
     for mapping_name, lambdas in reranker_sweep.items():
         for lambda_name, result in lambdas.items():
             print("{}\t{}\t{:.6f}\t{:.6f}\t{:.6f}\t{:.6f}\t{:.6f}".format(
                 mapping_name, lambda_name, result["auc"], result["ndcg@10"],
                 result["publisher_gini"], result["exposure_l1"],
-                result["ndcg_at_5_served"]))
+                result["ndcg_at_5_served"], result["cold_candidate_share"],
+                result["cold_positive_share"]))
 
 
 if __name__ == "__main__":

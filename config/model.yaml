@@ -33,14 +33,16 @@ data:
     - {name: category_606, family: category_correlated, seed: 606}
 benchmark:
   warmup_seconds: 30
-  measurement_seconds: 120
+  measurement_seconds: 60
   sample_interval_seconds: 1
   scale_factor: 5
   kafka_partitions: 2
-  rates: {below_saturation: null, above_saturation: null}
+  rates: {below_saturation: 1000, above_saturation: 2000}
   spark_triggers: [default, 1s]
   flink_parallelism: [1, 2]
   repetitions: 3
+  assumed_cpu_price_per_second: 0.0001
+  assumed_gb_second_price: 0.00001
 privacy:
   raw_user_ids_may_not_be_written: true
   reidentification_attempts: false

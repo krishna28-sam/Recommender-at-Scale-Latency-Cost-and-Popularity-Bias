@@ -1,0 +1,41 @@
+runs_read=42 (expected 42) problems=none
+
+config rate | p50k p95k p99k (ms) | thr ev/s | backlog | drain s | cpu s | cpu s/1k ev | cost/1M (ASSUMED)
+spark-default           1000 | 292±15 502±42 634±57 | 1005±0 | 231±60 | 1.0±0.0 | 101.6±2.7 | 1.693±0.044 | 0.1781±0.0048
+spark-default           2000 | 6171±639 11697±1159 13110±1246 | 1732±24 | 18459±1759 | 11.3±1.2 | 74.1±0.5 | 0.617±0.004 | 0.0660±0.0003
+spark-1s                1000 | 920±5 1350±8 1451±25 | 1004±4 | 815±173 | 2.0±0.0 | 61.7±1.5 | 1.028±0.025 | 0.1102±0.0025
+spark-1s                2000 | 6572±138 12489±493 13889±734 | 1722±19 | 19402±891 | 11.7±0.6 | 72.8±0.6 | 0.606±0.005 | 0.0649±0.0005
+flink-p1                1000 | 1008±5 1459±3 1714±158 | 1000±9 | 1147±277 | 2.7±0.6 | 46.9±0.4 | 0.782±0.007 | 0.0916±0.0018
+flink-p1                2000 | 5281±571 8850±638 9348±679 | 1749±11 | 15913±506 | 11.3±1.5 | 65.9±0.5 | 0.549±0.004 | 0.0612±0.0005
+flink-p1-tuned          1000 | 216±16 333±33 391±35 | 999±1 | 185±47 | 1.0±0.0 | 49.4±1.1 | 0.824±0.018 | 0.0953±0.0017
+flink-p1-tuned          2000 | 5297±309 9219±390 9608±410 | 1728±13 | 16716±766 | 10.0±1.0 | 66.0±0.3 | 0.550±0.003 | 0.0613±0.0002
+flink-p2                1000 | 1776±4 2663±5 2801±23 | 1011±1 | 1358±79 | 2.0±0.0 | 48.9±0.7 | 0.815±0.012 | 0.0964±0.0012
+flink-p2                2000 | 4441±510 7414±383 7856±490 | 1814±13 | 13406±871 | 9.3±1.2 | 71.8±0.1 | 0.598±0.001 | 0.0673±0.0001
+spark-default-rerank    1000 | 305±13 506±40 646±88 | 1007±1 | 254±18 | 1.3±0.6 | 102.3±2.2 | 1.705±0.036 | 0.1791±0.0037
+spark-default-rerank    2000 | 7018±533 13394±1019 14747±892 | 1699±8 | 20435±806 | 13.0±0.0 | 73.7±0.1 | 0.614±0.001 | 0.0656±0.0001
+flink-p1-rerank         1000 | 1017±11 1469±10 1706±148 | 995±2 | 1160±248 | 2.3±0.6 | 47.2±0.8 | 0.786±0.013 | 0.0915±0.0017
+flink-p1-rerank         2000 | 6075±627 10685±754 11167±890 | 1698±26 | 18864±1410 | 14.0±1.0 | 65.7±0.5 | 0.547±0.004 | 0.0611±0.0004
+
+RERANK OVERHEAD (lambda 0.6 vs 0.0, same engine; mean over 3 reps; n=3 so read with the std)
+spark-default   1000 latency_p50_kafka      base     291.67±   14.57 rerank     304.67±   13.20 change   +4.5%
+spark-default   1000 latency_p95_kafka      base     501.67±   41.86 rerank     506.33±   39.93 change   +0.9%
+spark-default   1000 output_throughput      base    1004.99±    0.36 rerank    1006.91±    0.51 change   +0.2%
+spark-default   1000 backlog_at_window_end  base     231.00±   60.22 rerank     253.67±   18.18 change   +9.8%
+spark-default   1000 cpu_per_1k_events      base       1.69±    0.04 rerank       1.71±    0.04 change   +0.7%
+spark-default   2000 latency_p50_kafka      base    6171.33±  638.67 rerank    7018.33±  533.23 change  +13.7%
+spark-default   2000 latency_p95_kafka      base   11696.67± 1159.33 rerank   13394.33± 1018.75 change  +14.5%
+spark-default   2000 output_throughput      base    1732.06±   24.34 rerank    1698.56±    8.28 change   -1.9%
+spark-default   2000 backlog_at_window_end  base   18459.33± 1758.99 rerank   20435.33±  806.48 change  +10.7%
+spark-default   2000 cpu_per_1k_events      base       0.62±    0.00 rerank       0.61±    0.00 change   -0.5%
+flink-p1        1000 latency_p50_kafka      base    1008.33±    5.13 rerank    1016.67±   10.60 change   +0.8%
+flink-p1        1000 latency_p95_kafka      base    1459.00±    2.65 rerank    1469.00±    9.54 change   +0.7%
+flink-p1        1000 output_throughput      base    1000.50±    8.58 rerank     995.29±    1.53 change   -0.5%
+flink-p1        1000 backlog_at_window_end  base    1147.33±  277.15 rerank    1160.33±  247.98 change   +1.1%
+flink-p1        1000 cpu_per_1k_events      base       0.78±    0.01 rerank       0.79±    0.01 change   +0.6%
+flink-p1        2000 latency_p50_kafka      base    5281.33±  570.59 rerank    6075.33±  626.56 change  +15.0%
+flink-p1        2000 latency_p95_kafka      base    8849.67±  638.48 rerank   10685.00±  753.59 change  +20.7%
+flink-p1        2000 output_throughput      base    1748.68±   11.10 rerank    1697.98±   26.26 change   -2.9%
+flink-p1        2000 backlog_at_window_end  base   15913.00±  505.75 rerank   18863.67± 1410.21 change  +18.5%
+flink-p1        2000 cpu_per_1k_events      base       0.55±    0.00 rerank       0.55±    0.00 change   -0.3%
+
+wrote data/processed/analysis/matrix_summary.csv and rerank_overhead.csv

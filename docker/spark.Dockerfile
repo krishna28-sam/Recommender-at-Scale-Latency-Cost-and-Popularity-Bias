@@ -14,3 +14,4 @@ COPY spark spark
 COPY recsys recsys
 COPY config config
 USER spark
+ENV PYTHONPATH=/opt/spark/work-dir

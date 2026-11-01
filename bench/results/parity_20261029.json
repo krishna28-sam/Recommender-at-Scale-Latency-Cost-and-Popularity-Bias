@@ -1,0 +1,23 @@
+{
+  "fixture": "data/scratch/parity_500.jsonl",
+  "mapping": "category_404",
+  "cases": [
+    {
+      "lambda": 0.0,
+      "spark_events": 500,
+      "flink_events": 500,
+      "offline_events": 500,
+      "differences": 0,
+      "passed": true
+    },
+    {
+      "lambda": 0.3,
+      "spark_events": 500,
+      "flink_events": 500,
+      "offline_events": 500,
+      "differences": 0,
+      "passed": true
+    }
+  ],
+  "gate": "PASS"
+}

@@ -1,18 +1,43 @@
-data/raw/
-data/processed/
-data/manifests/
-data/outputs/
-benchmarks/raw/
-benchmarks/summary/
-__pycache__/
-.pytest_cache/
+# Python virtual environment and caches
 .venv/
+__pycache__/
 *.pyc
+.pytest_cache/
 .ipynb_checkpoints/
+*.zip
+Recommender_at_Scale_Submission.zip
 
+# Root logs
+*.log
 build.log
 flink_build.log
 smoke.log
-logs/
-.venv/
-__pycache__/
+
+# Raw dataset, large outputs, and fallback artifacts
+data/raw/
+data/outputs/
+data/scratch/
+data/synthetic/
+data/manifests/
+data/manifests_movielens/
+data/processed_movielens/
+data/outputs_movielens/
+data/processed/dev_behaviors_hashed.tsv
+
+# Detailed execution logs (preserve probe reports and summaries)
+logs/*.log
+logs/old/
+
+# Essential processed analysis artifacts needed for notebook and reproduction
+!data/processed/analysis/
+!data/processed/model_tables/
+!data/processed/publishers/
+!data/processed/bias_summary.csv
+!data/processed/eda.json
+!logs/probe_report.csv
+!logs/probe_report.txt
+!logs/probe_stdout.txt
+!logs/matrix_summary.txt
+!logs/matrix_stdout.txt
+!logs/matrix_summary_by_config.txt
+!logs/SUMMARY.md

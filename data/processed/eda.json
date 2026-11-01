@@ -1,0 +1,113 @@
+{
+  "data_source": "real",
+  "train": {
+    "news": {
+      "news_rows": 51282,
+      "categories": 17,
+      "subcategories": 264,
+      "top_categories": [
+        [
+          "news",
+          15774
+        ],
+        [
+          "sports",
+          14510
+        ],
+        [
+          "finance",
+          3107
+        ],
+        [
+          "foodanddrink",
+          2551
+        ],
+        [
+          "lifestyle",
+          2479
+        ],
+        [
+          "travel",
+          2350
+        ],
+        [
+          "video",
+          2068
+        ],
+        [
+          "weather",
+          2048
+        ],
+        [
+          "health",
+          1885
+        ],
+        [
+          "autos",
+          1639
+        ]
+      ]
+    },
+    "behaviors": {
+      "behavior_rows": 156965,
+      "impressions": 5843444,
+      "clicks": 236344,
+      "click_rate": 0.040446010948338
+    }
+  },
+  "dev": {
+    "news": {
+      "news_rows": 42416,
+      "categories": 17,
+      "subcategories": 257,
+      "top_categories": [
+        [
+          "news",
+          13043
+        ],
+        [
+          "sports",
+          11760
+        ],
+        [
+          "finance",
+          2563
+        ],
+        [
+          "foodanddrink",
+          2248
+        ],
+        [
+          "lifestyle",
+          2132
+        ],
+        [
+          "travel",
+          1845
+        ],
+        [
+          "health",
+          1715
+        ],
+        [
+          "video",
+          1600
+        ],
+        [
+          "autos",
+          1490
+        ],
+        [
+          "weather",
+          1462
+        ]
+      ]
+    },
+    "behaviors": {
+      "behavior_rows": 73152,
+      "impressions": 2740998,
+      "clicks": 111383,
+      "click_rate": 0.040635928957263014
+    }
+  }
+}

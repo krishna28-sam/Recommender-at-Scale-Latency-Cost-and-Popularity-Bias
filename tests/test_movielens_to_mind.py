@@ -1,5 +1,6 @@
 import csv
 import json
+import pytest
 from datetime import datetime
 from pathlib import Path
 
@@ -9,9 +10,11 @@ def parse_timestamp(value):
 
 
 def test_derived_events_respect_cutoff_and_history_order():
+    if Path("data/raw/MINDsmall_train/behaviors.tsv").exists():
+        pytest.skip("real MIND-small is primary; MovieLens fallback test is not applicable")
     manifest_path = Path("data/manifests/movielens_manifest.json")
     if not manifest_path.exists():
-        return
+        pytest.skip("MovieLens fallback manifest not present")
     manifest = json.loads(manifest_path.read_text())
     cutoff = parse_timestamp(manifest["cutoff_timestamp"])
     ratings = {}
@@ -35,9 +38,11 @@ def test_derived_events_respect_cutoff_and_history_order():
 
 
 def test_cold_start_metrics_are_present_and_in_range():
+    if Path("data/raw/MINDsmall_train/behaviors.tsv").exists():
+        pytest.skip("real MIND-small is primary; MovieLens fallback test is not applicable")
     manifest_path = Path("data/manifests/movielens_manifest.json")
     if not manifest_path.exists():
-        return
+        pytest.skip("MovieLens fallback manifest not present")
     manifest = json.loads(manifest_path.read_text())
     assert "train_known_items" in manifest
     assert "dev_items_not_in_train_known" in manifest
