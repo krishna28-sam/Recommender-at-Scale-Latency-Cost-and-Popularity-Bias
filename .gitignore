@@ -8,9 +8,6 @@ __pycache__/
 Recommender_at_Scale_Submission.zip
 Big_Data_Submission.zip
 
-# Demo video (kept locally for classroom evaluation)
-demo_video/
-
 # Root logs
 *.log
 build.log
