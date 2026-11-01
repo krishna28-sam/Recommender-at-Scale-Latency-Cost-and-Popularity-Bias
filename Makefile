@@ -3,7 +3,7 @@ PYTHON ?= python3
 DATA_ROOT ?= data/raw
 export PYTHONPATH := .
 
-.PHONY: help data synthetic movielens eda mappings tables predictions offline hash-users up down topics test smoke probe matrix summarize bootstrap notebook
+.PHONY: help data synthetic movielens eda mappings tables predictions offline hash-users up down topics test smoke probe matrix summarize bootstrap notebook report
 
 help:
 	@echo "make data DATA_ROOT=... | synthetic | movielens | eda | mappings | tables | predictions | offline | hash-users | up | down | topics | test | smoke | probe | matrix | summarize | bootstrap | notebook"
